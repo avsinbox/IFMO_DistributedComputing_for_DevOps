@@ -1,0 +1,18 @@
+---
+- name: Create Redmine project directory
+  ansible.builtin.file:
+    path: ./dc-labs/redmine
+    state: directory
+    mode: '0700'
+
+- name: Upload redmine/docker-compose.yml
+  ansible.builtin.template:
+    src: docker-compose.yml.j2
+    dest: ./dc-labs/redmine/docker-compose.yml
+
+- name: Start PostgreSQL and Redmine containers
+  community.docker.docker_compose_v2:
+    project_src: ./dc-labs/redmine
+    state: present
+    recreate: always
+    pull: missing

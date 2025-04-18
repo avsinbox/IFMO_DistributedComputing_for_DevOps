@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+
+# Connect to PostgreSQL and create the Redmine database
+echo "Creating database ${REDMINE_DB_NAME}..."
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
+    CREATE DATABASE ${REDMINE_DB_NAME} ENCODING 'UTF8' OWNER ${REDMINE_DB_USER};
+    CREATE USER ${REDMINE_DB_USER} WITH PASSWORD '${REDMINE_DB_PASSWORD}';
+    GRANT ALL PRIVILEGES ON DATABASE ${REDMINE_DB_NAME} TO ${REDMINE_DB_USER};
+EOSQL

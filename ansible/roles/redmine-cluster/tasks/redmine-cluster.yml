@@ -1,0 +1,28 @@
+---
+- name: Stop PostgreSQL and Redmine containers
+  community.docker.docker_compose_v2:
+    project_src: ./dc-labs/redmine
+    state: stopped
+
+# The data migration from a single PostgreSQL instance to the PostgreSQL cluster has not been implemented yet
+
+- name: Create Redmine-cluster project directory
+  ansible.builtin.file:
+    path: ./dc-labs/redmine-cluster
+    state: directory
+    mode: '0700'
+
+- name: Upload redmine-cluster/docker-compose.yml
+  ansible.builtin.template:
+    src: docker-compose.yml.j2
+    dest: ./dc-labs/redmine-cluster/docker-compose.yml
+
+- name: Upload redmine-cluster/init_db.sh
+  ansible.builtin.copy:
+    src: init_db.sh
+    dest: ./dc-labs/redmine-cluster/init_db.sh
+
+- name: Start Patroni-managed PostgreSQL, Consul and Redmine containers
+  community.docker.docker_compose_v2:
+    project_src: ./dc-labs/redmine-cluster
+    state: present
