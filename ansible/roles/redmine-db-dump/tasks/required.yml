@@ -1,0 +1,6 @@
+---
+- name: Install python3-psycopg2 package required by the Ansible Community.Postgresql collection
+  ansible.builtin.apt:
+    update_cache: true
+    name: python3-psycopg2
+    state: present

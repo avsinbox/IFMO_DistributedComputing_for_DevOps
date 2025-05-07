@@ -1,5 +1,0 @@
----
-- name: Deploy Redmine-cluster
-  hosts: all
-  roles:
-    - redmine-cluster
