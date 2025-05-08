@@ -10,6 +10,8 @@ redmine_service_port: 8080
 
 redmine_network_name: redmine_network
 
+project_dir: dc-labs
+
 # ==================================================
 
 consul_server1_service_name: consul_server1

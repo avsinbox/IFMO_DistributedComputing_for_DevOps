@@ -1,7 +1,7 @@
 ---
 - name: Stop Redmine container
   community.docker.docker_compose_v2:
-    project_src: ./dc-labs
+    project_src: "{{ project_dir }}"
     files: docker-compose.yml
     services: "{{ redmine_service_name }}"
     state: stopped
@@ -14,16 +14,16 @@
     login_password: "{{ redmine_user_password }}"
     name: "{{ redmine_db_name }}"
     state: dump
-    target: ./dc-labs/redmine_db_dump.sql
+    target: "{{ project_dir }}/redmine_db_dump.sql"
 
 - name: Change Redmine database dump file permissions
   ansible.builtin.file:
-    path: ./dc-labs/redmine_db_dump.sql
+    path: "{{ project_dir }}/redmine_db_dump.sql"
     mode: '0600'
 
 - name: Remove PostgreSQL and Redmine containers and volumes
   community.docker.docker_compose_v2:
-    project_src: ./dc-labs
+    project_src: "{{ project_dir }}"
     files: docker-compose.yml
     state: absent
     remove_volumes: true

@@ -2,7 +2,7 @@
 - name: Upload PostgreSQL+Patroni Docker image related files
   ansible.builtin.copy:
     src: "{{ item }}"
-    dest: ./dc-labs
+    dest: "{{ project_dir }}"
     mode: '0600'
   loop:
     - Dockerfile
@@ -12,7 +12,7 @@
 - name: Upload docker-compose-consul.yml and docker-compose-patroni.yml
   ansible.builtin.template:
     src: "{{ item }}"
-    dest: ./dc-labs/{{ item.split('.') | first | basename }}.yml
+    dest: "{{ project_dir }}/{{ item.split('.') | first | basename }}.yml"
     mode: '0600'
   loop:
     - docker-compose-consul.yml.j2
@@ -20,19 +20,19 @@
 
 - name: Build PostgreSQL+Patroni Docker image
   community.docker.docker_image_build:
-    path: ./dc-labs
+    path: "{{ project_dir }}"
     name: "{{ patroni_custom_built_docker_image_name }}"
     tag: "{{ patroni_custom_built_docker_image_tag }}"
 
 - name: Start Consul server (DCS, DNS) containers
   community.docker.docker_compose_v2:
-    project_src: ./dc-labs
+    project_src: "{{ project_dir }}"
     files: docker-compose-consul.yml
     state: present
 
 - name: Start Consul client and Patroni-managed PostgreSQL containers
   community.docker.docker_compose_v2:
-    project_src: ./dc-labs
+    project_src: "{{ project_dir }}"
     files: docker-compose-patroni.yml
     services:
       - "{{ consul_client1_service_name }}"
@@ -106,7 +106,7 @@
     login_password: "{{ postgres_superuser_password }}"
     name: "{{ redmine_db_name }}"
     state: restore
-    target: ./dc-labs/redmine_db_dump.sql
+    target: "{{ project_dir }}/redmine_db_dump.sql"
   when: not item.in_recovery
   loop: "{{ pg_servers_roles.results }}"
   loop_control:
@@ -114,7 +114,7 @@
 
 - name: Start Redmine container
   community.docker.docker_compose_v2:
-    project_src: ./dc-labs
+    project_src: "{{ project_dir }}"
     files: docker-compose-patroni.yml
     services:
       - "{{ redmine_service_name }}"
