@@ -3,7 +3,7 @@
 readonly CONTAINER_IP=$(hostname --ip-address)
 readonly CONTAINER_API_ADDRESS="${CONTAINER_IP}:${PATRONI_API_CONNECT_PORT}"
 readonly CONTAINER_POSTGRESQL_ADDRESS="${CONTAINER_IP}:5432"
-readonly PATRONI_SCOPE="${PATRONI_SCOPE:-patroni)}"
+readonly PATRONI_SCOPE="${PATRONI_SCOPE:-patroni}"
 
 export PATRONI_SCOPE
 export PATRONI_NAME="${PATRONI_NAME:-$(hostname)}"
