@@ -2,11 +2,10 @@
 - name: Install required packages
   ansible.builtin.apt:
     update_cache: true
-    name: "{{ item }}"
+    name:
+      - ca-certificates
+      - curl
     state: present
-  loop:
-    - ca-certificates
-    - curl
 
 - name: Add Docker GPG key
   ansible.builtin.apt_key:
@@ -21,14 +20,13 @@
 - name: Install Docker
   ansible.builtin.apt:
     update_cache: true
-    name: "{{ item }}"
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
     state: present
-  loop:
-    - docker-ce
-    - docker-ce-cli
-    - containerd.io
-    - docker-buildx-plugin
-    - docker-compose-plugin
 
 - name: Start Docker service
   ansible.builtin.service:
