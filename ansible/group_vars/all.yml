@@ -27,10 +27,8 @@ consul_server3_name: consul-server3
 consul_server3_ipv4_address: 172.20.0.4
 
 
-
 consul_domain_name: redmine
 cluster_network_subnet: 172.20.0.0/24
-
 
 
 consul_client1_service_name: consul_client1
@@ -41,7 +39,6 @@ consul_client2_name: consul-client2
 
 consul_client3_service_name: consul_client3
 consul_client3_name: consul-client3
-
 
 
 postgres_patroni1_service_name: postgres_patroni1
@@ -60,17 +57,39 @@ postgres_patroni3_db_port: 5443
 postgres_patroni3_api_port: 8093
 
 
-
 patroni_custom_built_docker_image_name: postgres
 patroni_custom_built_docker_image_tag: 17.4-patroni4.0.5
 
 
-
 patroni_cluster_name: dbservers
-
 
 
 postgres_replication_username: replicator
 postgres_replication_password: replpass
 postgres_superuser_username: postgres
 postgres_superuser_password: supass
+
+# ==================================================
+
+prometheus_service_name: prometheus
+grafana_service_name: grafana
+
+pgscv_patroni_service_name: pgscv_patroni
+pgscv_patroni_name: pgscv-patroni
+
+pgscv_postgres_service_name: pgscv_postgres
+pgscv_postgres_name: pgscv-postgres
+
+pgscv_dashboards:
+  patroni:
+    id: 21462
+    revision: 4
+    file_name: patroni
+  postgresql:
+    id: 21430
+    revision: 11
+    file_name: postgresql
+  # pgbouncer:
+  #   id: 21429
+  #   revision: 6
+  #   file_name: pgbouncer
