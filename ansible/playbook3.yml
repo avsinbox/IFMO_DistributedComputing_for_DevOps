@@ -1,8 +1,13 @@
 ---
-- name: Home work 3. Deploy Prometheus and Grafana for Redmine cluster
+# - name: Home work 3. Deploy Prometheus and Grafana for Redmine cluster
+#   hosts: carrier
+#   roles:
+#     - redmine-monitoring
+
+- name: Home work 3. Deploy VictoriaMetrics and Grafana for Redmine cluster
   hosts: carrier
   roles:
-    - redmine-monitoring
+    - redmine-victoriametrics
 
 # pgSCV - PostgreSQL ecosystem metrics collector
 # https://github.com/cherts/pgscv/wiki

@@ -72,6 +72,8 @@ postgres_superuser_password: supass
 # ==================================================
 
 prometheus_service_name: prometheus
+victoriametrics_service_name: victoriametrics
+vmagent_service_name: vmagent
 grafana_service_name: grafana
 
 pgscv_patroni_service_name: pgscv_patroni
@@ -89,7 +91,7 @@ pgscv_dashboards:
     id: 21430
     revision: 11
     file_name: postgresql
-  # pgbouncer:
-  #   id: 21429
-  #   revision: 6
-  #   file_name: pgbouncer
+  pgbouncer:
+    id: 21429
+    revision: 6
+    file_name: pgbouncer
