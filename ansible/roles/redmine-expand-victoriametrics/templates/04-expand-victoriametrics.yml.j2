@@ -1,0 +1,34 @@
+services:
+  {{ pgscv_patroni_service_name }}:
+    environment:
+      PATRONI_URL_{{ postgres_patroni4_name }}: "http://{{ postgres_patroni4_name }}:8091"
+      PATRONI_URL_{{ postgres_patroni5_name }}: "http://{{ postgres_patroni5_name }}:8091"
+
+  {{ pgscv_postgres_service_name }}:
+    environment:
+      DATABASE_DSN_{{ postgres_patroni4_name }}: "postgresql://{{ postgres_superuser_username }}:{{ postgres_superuser_password }}@{{ postgres_patroni4_name }}/{{ redmine_db_name }}"
+      DATABASE_DSN_{{ postgres_patroni5_name }}: "postgresql://{{ postgres_superuser_username }}:{{ postgres_superuser_password }}@{{ postgres_patroni5_name }}/{{ redmine_db_name }}"
+
+  {{ pgscv_pgbouncer_service_name }}:
+    image: cherts/pgscv:v0.14.1
+    pull_policy: missing
+    container_name: {{ pgscv_pgbouncer_name }}
+    restart: unless-stopped
+    hostname: {{ pgscv_pgbouncer_name }}
+    environment:
+      TZ: Europe/Moscow
+      PGSCV_LISTEN_ADDRESS: 0.0.0.0:9890
+      PGSCV_DISABLE_COLLECTORS: system,postgres,patroni
+      PGBOUNCER_DSN_{{ pgbouncer1_name }}: "postgresql://{{ pgscv_pgbouncer_user_name }}:{{ pgscv_pgbouncer_user_password }}@{{ pgbouncer1_name }}:6432/pgbouncer"
+      PGBOUNCER_DSN_{{ pgbouncer2_name }}: "postgresql://{{ pgscv_pgbouncer_user_name }}:{{ pgscv_pgbouncer_user_password }}@{{ pgbouncer2_name }}:6432/pgbouncer"
+      PGBOUNCER_DSN_{{ pgbouncer3_name }}: "postgresql://{{ pgscv_pgbouncer_user_name }}:{{ pgscv_pgbouncer_user_password }}@{{ pgbouncer3_name }}:6432/pgbouncer"
+      PGBOUNCER_DSN_{{ pgbouncer4_name }}: "postgresql://{{ pgscv_pgbouncer_user_name }}:{{ pgscv_pgbouncer_user_password }}@{{ pgbouncer4_name }}:6432/pgbouncer"
+      PGBOUNCER_DSN_{{ pgbouncer5_name }}: "postgresql://{{ pgscv_pgbouncer_user_name }}:{{ pgscv_pgbouncer_user_password }}@{{ pgbouncer5_name }}:6432/pgbouncer"
+    ports:
+      - 9893:9890
+    networks:
+      - cluster_network
+    dns:
+      - 172.20.0.2
+      - 172.20.0.3
+      - 172.20.0.4

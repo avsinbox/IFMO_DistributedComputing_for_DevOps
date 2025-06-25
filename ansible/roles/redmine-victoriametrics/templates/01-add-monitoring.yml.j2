@@ -1,6 +1,6 @@
 services:
   {{ pgscv_patroni_service_name }}:
-    image: cherts/pgscv:v0.13.0
+    image: cherts/pgscv:v0.14.1
     pull_policy: missing
     container_name: {{ pgscv_patroni_name }}
     restart: unless-stopped
@@ -8,7 +8,7 @@ services:
     environment:
       TZ: Europe/Moscow
       PGSCV_LISTEN_ADDRESS: 0.0.0.0:9890
-      PGSCV_DISABLE_COLLECTORS: system,postgres/settings,postgres/storage,postgres/logs
+      PGSCV_DISABLE_COLLECTORS: system,postgres/settings,postgres/storage,postgres/logs,pgbouncer
       PATRONI_URL_{{ postgres_patroni1_name }}: "http://{{ postgres_patroni1_name }}:8091"
       PATRONI_URL_{{ postgres_patroni2_name }}: "http://{{ postgres_patroni2_name }}:8091"
       PATRONI_URL_{{ postgres_patroni3_name }}: "http://{{ postgres_patroni3_name }}:8091"
@@ -22,7 +22,7 @@ services:
       - 172.20.0.4
 
   {{ pgscv_postgres_service_name }}:
-    image: cherts/pgscv:v0.13.0
+    image: cherts/pgscv:v0.14.1
     pull_policy: missing
     container_name: {{ pgscv_postgres_name }}
     restart: unless-stopped
@@ -30,7 +30,7 @@ services:
     environment:
       TZ: Europe/Moscow
       PGSCV_LISTEN_ADDRESS: 0.0.0.0:9890
-      PGSCV_DISABLE_COLLECTORS: system,postgres/settings,postgres/storage,postgres/logs
+      PGSCV_DISABLE_COLLECTORS: system,postgres/settings,postgres/storage,postgres/logs,patroni,pgbouncer
       DATABASE_DSN_{{ postgres_patroni1_name }}: "postgresql://{{ postgres_superuser_username }}:{{ postgres_superuser_password }}@{{ postgres_patroni1_name }}/{{ redmine_db_name }}"
       DATABASE_DSN_{{ postgres_patroni2_name }}: "postgresql://{{ postgres_superuser_username }}:{{ postgres_superuser_password }}@{{ postgres_patroni2_name }}/{{ redmine_db_name }}"
       DATABASE_DSN_{{ postgres_patroni3_name }}: "postgresql://{{ postgres_superuser_username }}:{{ postgres_superuser_password }}@{{ postgres_patroni3_name }}/{{ redmine_db_name }}"
@@ -44,7 +44,7 @@ services:
       - 172.20.0.4
 
   {{ victoriametrics_service_name }}:
-    image: victoriametrics/victoria-metrics:v1.117.0
+    image: victoriametrics/victoria-metrics:v1.120.0
     pull_policy: missing
     container_name: {{ victoriametrics_service_name }}
     command:
@@ -66,7 +66,7 @@ services:
       - 172.20.0.4
 
   {{ vmagent_service_name }}:
-    image: victoriametrics/vmagent:v1.117.0
+    image: victoriametrics/vmagent:v1.120.0
     pull_policy: missing
     container_name: {{ vmagent_service_name }}
     command:

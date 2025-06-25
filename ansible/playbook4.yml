@@ -1,0 +1,31 @@
+---
+- name: Home work 4. Deploy PgBouncer and HAProxy for the Redmine cluster
+  hosts: carrier
+  
+  roles:
+    - redmine-cluster-scale-out
+    - redmine-pgbouncer-haproxy
+    - redmine-expand-victoriametrics
+  
+  tasks:
+    - name: Display Configuration Variables
+      ansible.builtin.debug:
+        msg:
+          # - "wordpress: {{ is_wordpress }}" # True or False
+          # - "wordpress_port: {{ wordpress_port }}" # 80 or 8080 or whatewer
+          # - "wordpress_db_name: {{ wordpress_db_name }}" # WP database name
+          - "db1_host: {{ postgres_patroni1_name }}" # container name
+          - "db2_host: {{ postgres_patroni2_name }}" # container name
+          - "db3_host: {{ postgres_patroni3_name }}" # container name
+          - "db4_host: {{ postgres_patroni4_name }}" # container name
+          - "db5_host: {{ postgres_patroni5_name }}" # container name
+          - "db_root: {{ postgres_superuser_username }}" # root username for DBs
+          - "db_pass: {{ postgres_superuser_password }}" # root password for DBs
+          - "loadbalancer: {{ haproxy_name }}" # container name
+          - "redmine_url: http://{{ ansible_host }}:8080" # Redmine URL
+          - "consul_ui_url: http://{{ ansible_host }}:8500/ui" # Consul UI URL
+          - "monitoring_url: http://{{ ansible_host }}:3000" # Grafana URL including port
+          - "vm_url: http://{{ ansible_host }}:8428/vmui" # VictoriaMetrics URL
+          - "haproxy_url: http://{{ ansible_host }}:8404/stats" # HAProxy UI URL
+
+# Warning: PgBouncer connections are limited to the 'redmine' database only

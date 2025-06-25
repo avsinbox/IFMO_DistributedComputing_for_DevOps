@@ -1,10 +1,10 @@
 ---
-# - name: Home work 3. Deploy Prometheus and Grafana for Redmine cluster
+# - name: Home work 3. Deploy Prometheus and Grafana for the Redmine cluster
 #   hosts: carrier
 #   roles:
 #     - redmine-monitoring
 
-- name: Home work 3. Deploy VictoriaMetrics and Grafana for Redmine cluster
+- name: Home work 3. Deploy VictoriaMetrics and Grafana for the Redmine cluster
   hosts: carrier
   roles:
     - redmine-victoriametrics

@@ -1,0 +1,3 @@
+---
+- name: Start PgBouncer and HAProxy containers
+  ansible.builtin.include_tasks: redmine-pgbouncer-haproxy.yml

@@ -1,0 +1,136 @@
+---
+services:
+  {{ consul_client4_service_name }}:
+    image: hashicorp/consul:1.20.6
+    pull_policy: missing
+    container_name: {{ consul_client4_name }}
+    command: agent
+    restart: unless-stopped
+    hostname: {{ consul_client4_name }}
+    environment:
+      TZ: Europe/Moscow
+      CONSUL_LOCAL_CONFIG: |
+        {
+          "server": false,
+          "node_name": "{{ consul_client4_name }}",
+          "client_addr": "0.0.0.0",
+          "retry_join": ["{{ consul_server1_name }}", "{{ consul_server2_name }}", "{{ consul_server3_name }}"],
+          "data_dir": "/consul/data"
+        }
+    volumes:
+      - {{ consul_client4_service_name }}_data:/consul/data
+    networks:
+      - cluster_network
+    dns:
+      - {{ consul_server1_ipv4_address }}
+      - {{ consul_server2_ipv4_address }}
+      - {{ consul_server3_ipv4_address }}
+
+  {{ consul_client5_service_name }}:
+    image: hashicorp/consul:1.20.6
+    pull_policy: missing
+    container_name: {{ consul_client5_name }}
+    command: agent
+    restart: unless-stopped
+    hostname: {{ consul_client5_name }}
+    environment:
+      TZ: Europe/Moscow
+      CONSUL_LOCAL_CONFIG: |
+        {
+          "server": false,
+          "node_name": "{{ consul_client5_name }}",
+          "client_addr": "0.0.0.0",
+          "retry_join": ["{{ consul_server1_name }}", "{{ consul_server2_name }}", "{{ consul_server3_name }}"],
+          "data_dir": "/consul/data"
+        }
+    volumes:
+      - {{ consul_client5_service_name }}_data:/consul/data
+    networks:
+      - cluster_network
+    dns:
+      - {{ consul_server1_ipv4_address }}
+      - {{ consul_server2_ipv4_address }}
+      - {{ consul_server3_ipv4_address }}
+    depends_on:
+      - {{ consul_client4_service_name }}
+
+  {{ postgres_patroni4_service_name }}:
+    image: {{ patroni_custom_built_docker_image_name }}:{{ patroni_custom_built_docker_image_tag }}
+    pull_policy: missing
+    container_name: {{ postgres_patroni4_name }}
+    restart: unless-stopped
+    hostname: {{ postgres_patroni4_name }}
+    environment:
+      TZ: Europe/Moscow
+      PATRONI_NAME: {{ postgres_patroni4_name }}
+      PATRONI_SCOPE: {{ patroni_cluster_name }}
+      PATRONI_API_CONNECT_PORT: 8091
+      PATRONI_REPLICATION_USERNAME: {{ postgres_replication_username }}
+      PATRONI_REPLICATION_PASSWORD: {{ postgres_replication_password }}
+      PATRONI_SUPERUSER_USERNAME: {{ postgres_superuser_username }}
+      PATRONI_SUPERUSER_PASSWORD: {{ postgres_superuser_password }}
+      PATRONI_CONSUL_HOST: {{ consul_client4_name }}:8500
+      PATRONI_CONSUL_REGISTER_SERVICE: "true"
+      PATRONI_CONSUL_SERVICE_CHECK_INTERVAL: 10s
+    volumes:
+      - {{ postgres_patroni4_service_name }}_data:/data/patroni
+    ports:
+      - {{ postgres_patroni4_db_port }}:5432
+      - {{ postgres_patroni4_api_port }}:8091
+    networks:
+      - cluster_network
+    dns:
+      - {{ consul_server1_ipv4_address }}
+      - {{ consul_server2_ipv4_address }}
+      - {{ consul_server3_ipv4_address }}
+    depends_on:
+      - {{ consul_client4_service_name }}
+      - {{ consul_client5_service_name }}
+
+  {{ postgres_patroni5_service_name }}:
+    image: {{ patroni_custom_built_docker_image_name }}:{{ patroni_custom_built_docker_image_tag }}
+    pull_policy: missing
+    container_name: {{ postgres_patroni5_name }}
+    restart: unless-stopped
+    hostname: {{ postgres_patroni5_name }}
+    environment:
+      TZ: Europe/Moscow
+      PATRONI_NAME: {{ postgres_patroni5_name }}
+      PATRONI_SCOPE: {{ patroni_cluster_name }}
+      PATRONI_API_CONNECT_PORT: 8091
+      PATRONI_REPLICATION_USERNAME: {{ postgres_replication_username }}
+      PATRONI_REPLICATION_PASSWORD: {{ postgres_replication_password }}
+      PATRONI_SUPERUSER_USERNAME: {{ postgres_superuser_username }}
+      PATRONI_SUPERUSER_PASSWORD: {{ postgres_superuser_password }}
+      PATRONI_CONSUL_HOST: {{ consul_client5_name }}:8500
+      PATRONI_CONSUL_REGISTER_SERVICE: "true"
+      PATRONI_CONSUL_SERVICE_CHECK_INTERVAL: 10s
+    volumes:
+      - {{ postgres_patroni5_service_name }}_data:/data/patroni
+    ports:
+      - {{ postgres_patroni5_db_port }}:5432
+      - {{ postgres_patroni5_api_port }}:8091
+    networks:
+      - cluster_network
+    dns:
+      - {{ consul_server1_ipv4_address }}
+      - {{ consul_server2_ipv4_address }}
+      - {{ consul_server3_ipv4_address }}
+    depends_on:
+      - {{ consul_client4_service_name }}
+      - {{ consul_client5_service_name }}
+      - {{ postgres_patroni4_service_name }}
+
+volumes:
+  {{ consul_client4_service_name }}_data:
+    name: {{ consul_client4_service_name }}_data
+  {{ consul_client5_service_name }}_data:
+    name: {{ consul_client5_service_name }}_data
+  {{ postgres_patroni4_service_name }}_data:
+    name: {{ postgres_patroni4_service_name }}_data
+  {{ postgres_patroni5_service_name }}_data:
+    name: {{ postgres_patroni5_service_name }}_data
+
+networks:
+  cluster_network:
+    external: true

@@ -1,0 +1,3 @@
+---
+- name: Update the pgSCV, VictoriaMetrics, and Grafana settings
+  ansible.builtin.include_tasks: redmine-expand-victoriametrics.yml

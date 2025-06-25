@@ -1,0 +1,52 @@
+---
+- name: Upload the files needed to build the PgBouncer+Consul Docker image
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "{{ project_dir }}/pgbouncer/"
+    mode: '0600'
+  loop:
+    - pgbouncer/Dockerfile
+    - pgbouncer/entrypoint.sh
+    - pgbouncer/supervisord.conf
+
+- name: Build the PgBouncer+Consul Docker image
+  community.docker.docker_image_build:
+    path: "{{ project_dir }}/pgbouncer"
+    name: "{{ pgbouncer_custom_built_docker_image_name }}"
+    tag: "{{ pgbouncer_custom_built_docker_image_tag }}"
+
+- name: Upload the files needed to build the HAProxy+Consul+Consul Template Docker image
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "{{ project_dir }}/haproxy/"
+    mode: '0600'
+  loop:
+    - haproxy/consul-template.hcl
+    - haproxy/delayed-startup.sh
+    - haproxy/Dockerfile
+    - haproxy/entrypoint.sh
+    - haproxy/haproxy.cfg
+    - haproxy/haproxy.ctmpl
+    - haproxy/supervisord.conf
+
+- name: Build the HAProxy+Consul+Consul Template Docker image
+  community.docker.docker_image_build:
+    path: "{{ project_dir }}/haproxy"
+    name: "{{ haproxy_custom_built_docker_image_name }}"
+    tag: "{{ haproxy_custom_built_docker_image_tag }}"
+
+- name: Upload 03-pgbouncer-haproxy.yml
+  ansible.builtin.template:
+    src: 03-pgbouncer-haproxy.yml.j2
+    dest: "{{ project_dir }}/03-pgbouncer-haproxy.yml"
+    mode: '0600'
+
+- name: Start the PgBouncer and HAProxy containers. Restart the Redmine container with the new database connection string
+  community.docker.docker_compose_v2:
+    project_src: "{{ project_dir }}"
+    files:
+      - docker-compose-patroni.yml
+      - 01-add-monitoring.yml
+      - 02-scale-out-patroni.yml
+      - 03-pgbouncer-haproxy.yml
+    state: present

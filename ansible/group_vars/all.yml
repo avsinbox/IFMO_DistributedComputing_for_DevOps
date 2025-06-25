@@ -40,6 +40,12 @@ consul_client2_name: consul-client2
 consul_client3_service_name: consul_client3
 consul_client3_name: consul-client3
 
+consul_client4_service_name: consul_client4
+consul_client4_name: consul-client4
+
+consul_client5_service_name: consul_client5
+consul_client5_name: consul-client5
+
 
 postgres_patroni1_service_name: postgres_patroni1
 postgres_patroni1_name: postgres-patroni1
@@ -55,6 +61,16 @@ postgres_patroni3_service_name: postgres_patroni3
 postgres_patroni3_name: postgres-patroni3
 postgres_patroni3_db_port: 5443
 postgres_patroni3_api_port: 8093
+
+postgres_patroni4_service_name: postgres_patroni4
+postgres_patroni4_name: postgres-patroni4
+postgres_patroni4_db_port: 5444
+postgres_patroni4_api_port: 8094
+
+postgres_patroni5_service_name: postgres_patroni5
+postgres_patroni5_name: postgres-patroni5
+postgres_patroni5_db_port: 5445
+postgres_patroni5_api_port: 8095
 
 
 patroni_custom_built_docker_image_name: postgres
@@ -82,16 +98,56 @@ pgscv_patroni_name: pgscv-patroni
 pgscv_postgres_service_name: pgscv_postgres
 pgscv_postgres_name: pgscv-postgres
 
+pgscv_pgbouncer_service_name: pgscv_pgbouncer
+pgscv_pgbouncer_name: pgscv-pgbouncer
+
 pgscv_dashboards:
   patroni:
     id: 21462
-    revision: 4
+    revision: 5
     file_name: patroni
   postgresql:
     id: 21430
-    revision: 11
+    revision: 14
     file_name: postgresql
   pgbouncer:
     id: 21429
-    revision: 6
+    revision: 7
     file_name: pgbouncer
+
+pgscv_pgbouncer_user_name: pgscv
+pgscv_pgbouncer_user_password: pgscvpass
+
+# ==================================================
+
+pgbouncer_custom_built_docker_image_name: pgbouncer
+pgbouncer_custom_built_docker_image_tag: 1.24.1-consul1.20.6
+
+haproxy_custom_built_docker_image_name: haproxy
+haproxy_custom_built_docker_image_tag: 3.2.1-consul1.20.6
+
+
+pgbouncer1_service_name: pgbouncer1
+pgbouncer1_name: pgbouncer1
+pgbouncer1_db_port: 6441
+
+pgbouncer2_service_name: pgbouncer2
+pgbouncer2_name: pgbouncer2
+pgbouncer2_db_port: 6442
+
+pgbouncer3_service_name: pgbouncer3
+pgbouncer3_name: pgbouncer3
+pgbouncer3_db_port: 6443
+
+pgbouncer4_service_name: pgbouncer4
+pgbouncer4_name: pgbouncer4
+pgbouncer4_db_port: 6444
+
+pgbouncer5_service_name: pgbouncer5
+pgbouncer5_name: pgbouncer5
+pgbouncer5_db_port: 6445
+
+haproxy_service_name: haproxy
+haproxy_name: haproxy
+haproxy_dbrw_port: 8432
+haproxy_dbro_port: 8433

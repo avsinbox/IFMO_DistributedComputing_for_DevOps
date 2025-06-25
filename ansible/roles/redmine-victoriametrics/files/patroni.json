@@ -52,7 +52,7 @@
       }
     ]
   },
-  "description": "Patroni dashboard for pgSCV metrics (Prometheus version, pgSCV 0.9.7 edition)",
+  "description": "Patroni dashboard for pgSCV metrics (Prometheus version, pgSCV v0.14.0 edition)",
   "editable": true,
   "fiscalYearStartMonth": 0,
   "gnetId": 21462,
@@ -758,7 +758,7 @@
             "uid": "${ds}"
           },
           "editorMode": "code",
-          "expr": "patroni_last_timeline_change_seconds{instance=\"$instance\",service_id=\"$patroni\",scope=\"$scope\"}",
+          "expr": "now()-patroni_last_timeline_change_seconds{instance=\"$instance\",service_id=\"$patroni\",scope=\"$scope\"}",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -2571,6 +2571,6 @@
   "timezone": "",
   "title": "pgSCV: Patroni (NEW)",
   "uid": "aim7Ue3th",
-  "version": 22,
+  "version": 23,
   "weekStart": ""
 }

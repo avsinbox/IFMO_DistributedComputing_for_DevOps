@@ -1,0 +1,38 @@
+---
+- name: Upload the updated vmagent.yml and 04-expand-victoriametrics.yml files
+  ansible.builtin.template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: "{{ item.mode }}"
+  loop:
+    - { src: vmagent.yml.j2, dest: "{{ project_dir }}/victoriametrics/vmagent/vmagent.yml", mode: '0644' }
+    - { src: 04-expand-victoriametrics.yml.j2, dest: "{{ project_dir }}/04-expand-victoriametrics.yml", mode: '0600' }
+
+- name: Upload the Grafana dashboard file
+  ansible.builtin.copy:
+    src: pgbouncer.json
+    dest: "{{ project_dir }}/grafana/provisioning/dashboards"
+    mode: '0644'
+
+- name: Start the pgSCV containers
+  community.docker.docker_compose_v2:
+    project_src: "{{ project_dir }}"
+    files:
+      - docker-compose-patroni.yml
+      - 01-add-monitoring.yml
+      - 02-scale-out-patroni.yml
+      - 03-pgbouncer-haproxy.yml
+      - 04-expand-victoriametrics.yml
+    state: present
+
+- name: Restart the vmagent container to apply the new configuration
+  community.docker.docker_compose_v2:
+    project_src: "{{ project_dir }}"
+    files:
+      - docker-compose-patroni.yml
+      - 01-add-monitoring.yml
+      - 02-scale-out-patroni.yml
+      - 03-pgbouncer-haproxy.yml
+      - 04-expand-victoriametrics.yml
+    services: "{{ vmagent_service_name }}"
+    state: restarted

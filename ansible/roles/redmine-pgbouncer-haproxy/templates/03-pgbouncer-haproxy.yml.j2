@@ -1,0 +1,350 @@
+---
+services:
+  {{ pgbouncer1_service_name }}:
+    image: {{ pgbouncer_custom_built_docker_image_name }}:{{ pgbouncer_custom_built_docker_image_tag }}
+    pull_policy: missing
+    container_name: {{ pgbouncer1_name }}
+    restart: unless-stopped
+    hostname: {{ pgbouncer1_name }}
+    environment:
+      TZ: Europe/Moscow
+      CONSUL_LOCAL_CONFIG: |
+        {
+          "disable_update_check": true,
+          "server": false,
+          "node_name": "{{ pgbouncer1_name }}",
+          "client_addr": "0.0.0.0",
+          "retry_join": ["{{ consul_server1_name }}", "{{ consul_server2_name }}", "{{ consul_server3_name }}"],
+          "data_dir": "/consul/data",
+          "service": {
+            "name": "pgbouncer",
+            "id": "pgbouncer/{{ pgbouncer1_name }}",
+            "port": 6432,
+            "tags": ["{{ postgres_patroni1_name }}"],
+            "checks": [
+              {
+                "name": "TCP Check",
+                "tcp": "localhost:6432",
+                "interval": "10s",
+                "timeout": "2s"
+              }
+            ]
+          }
+        }
+      PGBOUNCER_STATS_USERS: {{ pgscv_pgbouncer_user_name }}
+      PGBOUNCER_USERLIST: |
+        "{{ pgscv_pgbouncer_user_name }}" "{{ pgscv_pgbouncer_user_password }}"
+      PGBOUNCER_DATABASE: {{ redmine_db_name }}
+      POSTGRESQL_HOST: {{ postgres_patroni1_name }}
+      POSTGRESQL_DATABASE: {{ redmine_db_name }}
+      POSTGRESQL_USERNAME: {{ redmine_user_name }}
+      POSTGRESQL_PASSWORD: {{ redmine_user_password }}
+    volumes:
+      - {{ pgbouncer1_service_name }}_data:/consul/data
+    ports:
+      - {{ pgbouncer1_db_port }}:6432
+    networks:
+      - cluster_network
+    dns:
+      - {{ consul_server1_ipv4_address }}
+      - {{ consul_server2_ipv4_address }}
+      - {{ consul_server3_ipv4_address }}
+
+  {{ pgbouncer2_service_name }}:
+    image: {{ pgbouncer_custom_built_docker_image_name }}:{{ pgbouncer_custom_built_docker_image_tag }}
+    pull_policy: missing
+    container_name: {{ pgbouncer2_name }}
+    restart: unless-stopped
+    hostname: {{ pgbouncer2_name }}
+    environment:
+      TZ: Europe/Moscow
+      CONSUL_LOCAL_CONFIG: |
+        {
+          "disable_update_check": true,
+          "server": false,
+          "node_name": "{{ pgbouncer2_name }}",
+          "client_addr": "0.0.0.0",
+          "retry_join": ["{{ consul_server1_name }}", "{{ consul_server2_name }}", "{{ consul_server3_name }}"],
+          "data_dir": "/consul/data",
+          "service": {
+            "name": "pgbouncer",
+            "id": "pgbouncer/{{ pgbouncer2_name }}",
+            "port": 6432,
+            "tags": ["{{ postgres_patroni2_name }}"],
+            "checks": [
+              {
+                "name": "TCP Check",
+                "tcp": "localhost:6432",
+                "interval": "10s",
+                "timeout": "2s"
+              }
+            ]
+          }
+        }
+      PGBOUNCER_STATS_USERS: {{ pgscv_pgbouncer_user_name }}
+      PGBOUNCER_USERLIST: |
+        "{{ pgscv_pgbouncer_user_name }}" "{{ pgscv_pgbouncer_user_password }}"
+      PGBOUNCER_DATABASE: {{ redmine_db_name }}
+      POSTGRESQL_HOST: {{ postgres_patroni2_name }}
+      POSTGRESQL_DATABASE: {{ redmine_db_name }}
+      POSTGRESQL_USERNAME: {{ redmine_user_name }}
+      POSTGRESQL_PASSWORD: {{ redmine_user_password }}
+    volumes:
+      - {{ pgbouncer2_service_name }}_data:/consul/data
+    ports:
+      - {{ pgbouncer2_db_port }}:6432
+    networks:
+      - cluster_network
+    dns:
+      - {{ consul_server1_ipv4_address }}
+      - {{ consul_server2_ipv4_address }}
+      - {{ consul_server3_ipv4_address }}
+    depends_on:
+      - {{ pgbouncer1_service_name }}
+
+  {{ pgbouncer3_service_name }}:
+    image: {{ pgbouncer_custom_built_docker_image_name }}:{{ pgbouncer_custom_built_docker_image_tag }}
+    pull_policy: missing
+    container_name: {{ pgbouncer3_name }}
+    restart: unless-stopped
+    hostname: {{ pgbouncer3_name }}
+    environment:
+      TZ: Europe/Moscow
+      CONSUL_LOCAL_CONFIG: |
+        {
+          "disable_update_check": true,
+          "server": false,
+          "node_name": "{{ pgbouncer3_name }}",
+          "client_addr": "0.0.0.0",
+          "retry_join": ["{{ consul_server1_name }}", "{{ consul_server2_name }}", "{{ consul_server3_name }}"],
+          "data_dir": "/consul/data",
+          "service": {
+            "name": "pgbouncer",
+            "id": "pgbouncer/{{ pgbouncer3_name }}",
+            "port": 6432,
+            "tags": ["{{ postgres_patroni3_name }}"],
+            "checks": [
+              {
+                "name": "TCP Check",
+                "tcp": "localhost:6432",
+                "interval": "10s",
+                "timeout": "2s"
+              }
+            ]
+          }
+        }
+      PGBOUNCER_STATS_USERS: {{ pgscv_pgbouncer_user_name }}
+      PGBOUNCER_USERLIST: |
+        "{{ pgscv_pgbouncer_user_name }}" "{{ pgscv_pgbouncer_user_password }}"
+      PGBOUNCER_DATABASE: {{ redmine_db_name }}
+      POSTGRESQL_HOST: {{ postgres_patroni3_name }}
+      POSTGRESQL_DATABASE: {{ redmine_db_name }}
+      POSTGRESQL_USERNAME: {{ redmine_user_name }}
+      POSTGRESQL_PASSWORD: {{ redmine_user_password }}
+    volumes:
+      - {{ pgbouncer3_service_name }}_data:/consul/data
+    ports:
+      - {{ pgbouncer3_db_port }}:6432
+    networks:
+      - cluster_network
+    dns:
+      - {{ consul_server1_ipv4_address }}
+      - {{ consul_server2_ipv4_address }}
+      - {{ consul_server3_ipv4_address }}
+    depends_on:
+      - {{ pgbouncer2_service_name }}
+
+  {{ pgbouncer4_service_name }}:
+    image: {{ pgbouncer_custom_built_docker_image_name }}:{{ pgbouncer_custom_built_docker_image_tag }}
+    pull_policy: missing
+    container_name: {{ pgbouncer4_name }}
+    restart: unless-stopped
+    hostname: {{ pgbouncer4_name }}
+    environment:
+      TZ: Europe/Moscow
+      CONSUL_LOCAL_CONFIG: |
+        {
+          "disable_update_check": true,
+          "server": false,
+          "node_name": "{{ pgbouncer4_name }}",
+          "client_addr": "0.0.0.0",
+          "retry_join": ["{{ consul_server1_name }}", "{{ consul_server2_name }}", "{{ consul_server3_name }}"],
+          "data_dir": "/consul/data",
+          "service": {
+            "name": "pgbouncer",
+            "id": "pgbouncer/{{ pgbouncer4_name }}",
+            "port": 6432,
+            "tags": ["{{ postgres_patroni4_name }}"],
+            "checks": [
+              {
+                "name": "TCP Check",
+                "tcp": "localhost:6432",
+                "interval": "10s",
+                "timeout": "2s"
+              }
+            ]
+          }
+        }
+      PGBOUNCER_STATS_USERS: {{ pgscv_pgbouncer_user_name }}
+      PGBOUNCER_USERLIST: |
+        "{{ pgscv_pgbouncer_user_name }}" "{{ pgscv_pgbouncer_user_password }}"
+      PGBOUNCER_DATABASE: {{ redmine_db_name }}
+      POSTGRESQL_HOST: {{ postgres_patroni4_name }}
+      POSTGRESQL_DATABASE: {{ redmine_db_name }}
+      POSTGRESQL_USERNAME: {{ redmine_user_name }}
+      POSTGRESQL_PASSWORD: {{ redmine_user_password }}
+    volumes:
+      - {{ pgbouncer4_service_name }}_data:/consul/data
+    ports:
+      - {{ pgbouncer4_db_port }}:6432
+    networks:
+      - cluster_network
+    dns:
+      - {{ consul_server1_ipv4_address }}
+      - {{ consul_server2_ipv4_address }}
+      - {{ consul_server3_ipv4_address }}
+    depends_on:
+      - {{ pgbouncer3_service_name }}
+
+  {{ pgbouncer5_service_name }}:
+    image: {{ pgbouncer_custom_built_docker_image_name }}:{{ pgbouncer_custom_built_docker_image_tag }}
+    pull_policy: missing
+    container_name: {{ pgbouncer5_name }}
+    restart: unless-stopped
+    hostname: {{ pgbouncer5_name }}
+    environment:
+      TZ: Europe/Moscow
+      CONSUL_LOCAL_CONFIG: |
+        {
+          "disable_update_check": true,
+          "server": false,
+          "node_name": "{{ pgbouncer5_name }}",
+          "client_addr": "0.0.0.0",
+          "retry_join": ["{{ consul_server1_name }}", "{{ consul_server2_name }}", "{{ consul_server3_name }}"],
+          "data_dir": "/consul/data",
+          "service": {
+            "name": "pgbouncer",
+            "id": "pgbouncer/{{ pgbouncer5_name }}",
+            "port": 6432,
+            "tags": ["{{ postgres_patroni5_name }}"],
+            "checks": [
+              {
+                "name": "TCP Check",
+                "tcp": "localhost:6432",
+                "interval": "10s",
+                "timeout": "2s"
+              }
+            ]
+          }
+        }
+      PGBOUNCER_STATS_USERS: {{ pgscv_pgbouncer_user_name }}
+      PGBOUNCER_USERLIST: |
+        "{{ pgscv_pgbouncer_user_name }}" "{{ pgscv_pgbouncer_user_password }}"
+      PGBOUNCER_DATABASE: {{ redmine_db_name }}
+      POSTGRESQL_HOST: {{ postgres_patroni5_name }}
+      POSTGRESQL_DATABASE: {{ redmine_db_name }}
+      POSTGRESQL_USERNAME: {{ redmine_user_name }}
+      POSTGRESQL_PASSWORD: {{ redmine_user_password }}
+    volumes:
+      - {{ pgbouncer5_service_name }}_data:/consul/data
+    ports:
+      - {{ pgbouncer5_db_port }}:6432
+    networks:
+      - cluster_network
+    dns:
+      - {{ consul_server1_ipv4_address }}
+      - {{ consul_server2_ipv4_address }}
+      - {{ consul_server3_ipv4_address }}
+    depends_on:
+      - {{ pgbouncer4_service_name }}
+
+  {{ haproxy_service_name }}:
+    image: {{ haproxy_custom_built_docker_image_name }}:{{ haproxy_custom_built_docker_image_tag }}
+    pull_policy: missing
+    container_name: {{ haproxy_name }}
+    restart: unless-stopped
+    hostname: {{ haproxy_name }}
+    environment:
+      TZ: Europe/Moscow
+      CONSUL_LOCAL_CONFIG: |
+        {
+          "disable_update_check": true,
+          "server": false,
+          "node_name": "{{ haproxy_name }}",
+          "client_addr": "0.0.0.0",
+          "retry_join": ["{{ consul_server1_name }}", "{{ consul_server2_name }}", "{{ consul_server3_name }}"],
+          "data_dir": "/consul/data",
+          "services": [
+            {
+              "name": "haproxy",
+              "id": "haproxy/dbrw",
+              "port": 5432,
+              "tags": ["dbrw"],
+              "checks": [
+                {
+                  "name": "TCP Check",
+                  "tcp": "localhost:5432",
+                  "interval": "10s",
+                  "timeout": "2s"
+                }
+              ]
+            },
+            {
+              "name": "haproxy",
+              "id": "haproxy/dbro",
+              "port": 5433,
+              "tags": ["dbro"],
+              "checks": [
+                {
+                  "name": "TCP Check",
+                  "tcp": "localhost:5433",
+                  "interval": "10s",
+                  "timeout": "2s"
+                }
+              ]
+            }
+          ]
+        }
+    volumes:
+      - {{ haproxy_service_name }}_data:/consul/data
+    ports:
+      - {{ haproxy_dbrw_port }}:5432
+      - {{ haproxy_dbro_port }}:5433
+      - 8404:8404
+    networks:
+      - cluster_network
+    dns:
+      - {{ consul_server1_ipv4_address }}
+      - {{ consul_server2_ipv4_address }}
+      - {{ consul_server3_ipv4_address }}
+    depends_on:
+      - {{ pgbouncer1_service_name }}
+      - {{ pgbouncer2_service_name }}
+      - {{ pgbouncer3_service_name }}
+      - {{ pgbouncer4_service_name }}
+      - {{ pgbouncer5_service_name }}
+
+  {{ redmine_service_name }}:
+    environment:
+      REDMINE_DB_POSTGRES: dbrw.haproxy.service.{{ consul_domain_name }}
+      REDMINE_DB_PORT: 5432
+    depends_on:
+      - {{ haproxy_service_name }}
+
+volumes:
+  {{ pgbouncer1_service_name }}_data:
+    name: {{ pgbouncer1_service_name }}_data
+  {{ pgbouncer2_service_name }}_data:
+    name: {{ pgbouncer2_service_name }}_data
+  {{ pgbouncer3_service_name }}_data:
+    name: {{ pgbouncer3_service_name }}_data
+  {{ pgbouncer4_service_name }}_data:
+    name: {{ pgbouncer4_service_name }}_data
+  {{ pgbouncer5_service_name }}_data:
+    name: {{ pgbouncer5_service_name }}_data
+  {{ haproxy_service_name }}_data:
+    name: {{ haproxy_service_name }}_data
+
+networks:
+  cluster_network:
+    external: true

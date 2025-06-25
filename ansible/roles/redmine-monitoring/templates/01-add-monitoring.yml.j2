@@ -1,6 +1,6 @@
 services:
   {{ pgscv_patroni_service_name }}:
-    image: cherts/pgscv:v0.13.0
+    image: cherts/pgscv:v0.14.1
     pull_policy: missing
     container_name: {{ pgscv_patroni_name }}
     restart: unless-stopped
@@ -22,7 +22,7 @@ services:
       - 172.20.0.4
 
   {{ pgscv_postgres_service_name }}:
-    image: cherts/pgscv:v0.13.0
+    image: cherts/pgscv:v0.14.1
     pull_policy: missing
     container_name: {{ pgscv_postgres_name }}
     restart: unless-stopped

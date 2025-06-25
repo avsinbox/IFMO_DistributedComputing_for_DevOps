@@ -99,6 +99,7 @@ services:
       PATRONI_SUPERUSER_PASSWORD: {{ postgres_superuser_password }}
       PATRONI_CONSUL_HOST: {{ consul_client1_name }}:8500
       PATRONI_CONSUL_REGISTER_SERVICE: "true"
+      PATRONI_CONSUL_SERVICE_CHECK_INTERVAL: 10s
     volumes:
       - {{ postgres_patroni1_service_name }}_data:/data/patroni
     ports:
@@ -132,6 +133,7 @@ services:
       PATRONI_SUPERUSER_PASSWORD: {{ postgres_superuser_password }}
       PATRONI_CONSUL_HOST: {{ consul_client2_name }}:8500
       PATRONI_CONSUL_REGISTER_SERVICE: "true"
+      PATRONI_CONSUL_SERVICE_CHECK_INTERVAL: 10s
     volumes:
       - {{ postgres_patroni2_service_name }}_data:/data/patroni
     ports:
@@ -166,6 +168,7 @@ services:
       PATRONI_SUPERUSER_PASSWORD: {{ postgres_superuser_password }}
       PATRONI_CONSUL_HOST: {{ consul_client3_name }}:8500
       PATRONI_CONSUL_REGISTER_SERVICE: "true"
+      PATRONI_CONSUL_SERVICE_CHECK_INTERVAL: 10s
     volumes:
       - {{ postgres_patroni3_service_name }}_data:/data/patroni
     ports:

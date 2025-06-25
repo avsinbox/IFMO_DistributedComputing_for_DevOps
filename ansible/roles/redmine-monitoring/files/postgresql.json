@@ -15,7 +15,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "11.6.0-227265"
+      "version": "11.5.0-219443"
     },
     {
       "type": "datasource",
@@ -58,7 +58,7 @@
       }
     ]
   },
-  "description": "PostgreSQL dashboard for pgSCV metrics (Prometheus version, pgSCV 0.13.0 edition)",
+  "description": "PostgreSQL dashboard for pgSCV metrics (Prometheus version, pgSCV v0.14.0 edition)",
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
@@ -147,7 +147,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "red"
+                "color": "red",
+                "value": null
               },
               {
                 "color": "green",
@@ -184,12 +185,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.6.0-227265",
+      "pluginVersion": "11.5.0-219443",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -206,7 +207,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Current role of PostgreSQL node (Primary or Replica).",
       "fieldConfig": {
@@ -233,7 +234,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "light-blue",
@@ -270,12 +272,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.6.0-227265",
+      "pluginVersion": "11.5.0-219443",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -292,7 +294,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Rate of successfully executed statements per second.",
       "fieldConfig": {
@@ -305,7 +307,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "yellow",
@@ -350,12 +353,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.6.0-227265",
+      "pluginVersion": "11.5.0-219443",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -372,7 +375,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Total number of log messages rate (per minute) with severity higher than LOG (e.g. WARNING, ERROR, FATAL and PANIC).",
       "fieldConfig": {
@@ -385,7 +388,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "yellow",
@@ -426,12 +430,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.6.0-227265",
+      "pluginVersion": "11.5.0-219443",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -448,7 +452,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Average response time calculated using time of executed statements.",
       "fieldConfig": {
@@ -461,7 +465,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "yellow",
@@ -502,12 +507,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.6.0-227265",
+      "pluginVersion": "11.5.0-219443",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -524,7 +529,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Current longest transaction activity, initiated by clients or background service (e.g. autovacuum).",
       "fieldConfig": {
@@ -537,7 +542,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "yellow",
@@ -578,12 +584,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.6.0-227265",
+      "pluginVersion": "11.5.0-219443",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -600,7 +606,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Total number of connected clients.",
       "fieldConfig": {
@@ -613,7 +619,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "#EAB839",
@@ -658,12 +665,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.6.0-227265",
+      "pluginVersion": "11.5.0-219443",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -680,7 +687,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Total number of invalid indexed in cluster. See Tables panel for more detail.",
       "fieldConfig": {
@@ -693,7 +700,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -730,16 +738,16 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.6.0-227265",
+      "pluginVersion": "11.5.0-219443",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "count(postgres_index_scans_total{instance=\"$instance\",service_id=\"$postgres\",isvalid=\"false\"})",
+          "expr": "count(postgres_index_scans_total{instance=\"$instance\",service_id=\"$postgres\",isvalid=\"false\"}) or on() vector(0)",
           "instant": false,
           "interval": "",
           "legendFormat": "count",
@@ -752,7 +760,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Total number of inactive replication slots.",
       "fieldConfig": {
@@ -765,7 +773,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -802,16 +811,16 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.6.0-227265",
+      "pluginVersion": "11.5.0-219443",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "count(postgres_replication_slot_wal_retain_bytes{instance=\"$instance\",service_id=\"$postgres\",active=\"false\"})",
+          "expr": "count(postgres_replication_slot_wal_retain_bytes{instance=\"$instance\",service_id=\"$postgres\",active=\"false\"}) or on() vector(0)",
           "instant": false,
           "interval": "",
           "legendFormat": "count",
@@ -824,7 +833,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Total number of rollbacks. See \"Client activity\" dashboard for more detail. Select primary node.",
       "fieldConfig": {
@@ -837,7 +846,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "yellow",
@@ -882,16 +892,16 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.6.0-227265",
+      "pluginVersion": "11.5.0-219443",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum(increase(postgres_database_xact_rollbacks_total{instance=\"$instance\",service_id=\"$postgres\",database!~\"^$exclude$\",user!~\"^$exclude$\"}[1m]))",
+          "expr": "sum(increase(postgres_database_xact_rollbacks_total{instance=\"$instance\",service_id=\"$postgres\",database!~\"^$exclude$\",user!~\"^$exclude$\"}[1m])) or on() vector(0)",
           "instant": false,
           "interval": "",
           "legendFormat": "count",
@@ -904,7 +914,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Total number of conflicts per minute. See the documentation for the pg_stat_database view for more details.",
       "fieldConfig": {
@@ -917,7 +927,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -954,16 +965,16 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.6.0-227265",
+      "pluginVersion": "11.5.0-219443",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum(increase(postgres_database_conflicts_total{instance=\"$instance\",service_id=\"$postgres\"}[1m]))",
+          "expr": "sum(increase(postgres_database_conflicts_total{instance=\"$instance\",service_id=\"$postgres\"}[1m])) or on() vector(0)",
           "instant": false,
           "interval": "",
           "legendFormat": "count",
@@ -976,7 +987,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Total number of deadlocks occurred. See \"Deadlocks, per minute\" dashboard for more detail.",
       "fieldConfig": {
@@ -989,7 +1000,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -1026,16 +1038,16 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.6.0-227265",
+      "pluginVersion": "11.5.0-219443",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum(increase(postgres_database_deadlocks_total{instance=\"$instance\",service_id=\"$postgres\"}[1m]))",
+          "expr": "sum(increase(postgres_database_deadlocks_total{instance=\"$instance\",service_id=\"$postgres\"}[1m])) or on() vector(0)",
           "instant": false,
           "interval": "",
           "legendFormat": "count",
@@ -1048,7 +1060,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Total number of checksum failures occurred per minute.",
       "fieldConfig": {
@@ -1061,7 +1073,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -1098,16 +1111,16 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.6.0-227265",
+      "pluginVersion": "11.5.0-219443",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum(increase(postgres_database_checksum_failures_total{instance=\"$instance\",service_id=\"$postgres\"}[1m]))",
+          "expr": "sum(increase(postgres_database_checksum_failures_total{instance=\"$instance\",service_id=\"$postgres\"}[1m])) or on() vector(0)",
           "instant": false,
           "interval": "",
           "legendFormat": "count",
@@ -1120,7 +1133,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Total number of sessions established to this database and closed by reason abandoned, fatal or killed. See \"Session activity\" dashboard for more detail.",
       "fieldConfig": {
@@ -1133,7 +1146,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "yellow",
@@ -1178,16 +1192,16 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.6.0-227265",
+      "pluginVersion": "11.5.0-219443",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum(increase(postgres_database_sessions_total{instance=\"$instance\",service_id=\"$postgres\",reason=~\"abandoned|fatal|killed\",database!~\"^$exclude$\"}[1m]))",
+          "expr": "sum(increase(postgres_database_sessions_total{instance=\"$instance\",service_id=\"$postgres\",reason=~\"abandoned|fatal|killed\",database!~\"^$exclude$\"}[1m])) or on() vector(0)",
           "instant": false,
           "interval": "",
           "legendFormat": "count",
@@ -1200,7 +1214,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Shows if the vacuum/autovacuum process is running. See the \"Vacuum maintenance\" section for more detail.",
       "fieldConfig": {
@@ -1234,7 +1248,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "light-blue",
@@ -1271,16 +1286,16 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.6.0-227265",
+      "pluginVersion": "11.5.0-219443",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by (service_id) (postgres_activity_vacuums_in_flight{instance=\"$instance\",service_id=\"$postgres\"})",
+          "expr": "sum by (service_id) (postgres_activity_vacuums_in_flight{instance=\"$instance\",service_id=\"$postgres\"}) or on() vector(0)",
           "instant": true,
           "interval": "",
           "legendFormat": "vacuum",
@@ -1288,6 +1303,233 @@
         }
       ],
       "title": "Vacuum",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${ds}"
+      },
+      "description": "Total number of SSL connections.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 100
+              },
+              {
+                "color": "orange",
+                "value": 500
+              },
+              {
+                "color": "red",
+                "value": 1200
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 12,
+        "y": 11
+      },
+      "id": 128,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.0-219443",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${ds}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum(postgres_stat_ssl_conn_number{instance=\"$instance\",service_id=\"$postgres\",user!~\"^$exclude$\"}) or on() vector(0)",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "response time",
+          "refId": "A"
+        }
+      ],
+      "title": "SSL connections",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${ds}"
+      },
+      "description": "Number of times an error occurred during the initial table synchronization (use logical replication).",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "dark-red",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 16,
+        "y": 11
+      },
+      "id": 125,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.0-219443",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${ds}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum(increase(postgres_stat_subscription_error_count{instance=\"$instance\",service_id=\"$postgres\",type=\"sync\"}[1m])) or on() vector(0)",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "sync",
+          "refId": "A"
+        }
+      ],
+      "title": "Subscription errors (sync)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${ds}"
+      },
+      "description": "Number of times an error occurred while applying changes (use logical replication).",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "dark-red",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 20,
+        "y": 11
+      },
+      "id": 124,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.0-219443",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${ds}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum(increase(postgres_stat_subscription_error_count{instance=\"$instance\",service_id=\"$postgres\",type=\"apply\"}[1m])) or on() vector(0)",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "apply",
+          "refId": "A"
+        }
+      ],
+      "title": "Subscription errors (apply)",
       "type": "stat"
     },
     {
@@ -1394,12 +1636,12 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.5.0-217209",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -1426,7 +1668,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -1444,7 +1686,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "description": "The most longest activity produced by connected clients and background services.",
           "fieldConfig": {
@@ -1519,12 +1761,12 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.5.0-217209",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -1541,7 +1783,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "description": "States of connections established by clients (doesn't include states of background services).",
           "fieldConfig": {
@@ -1690,7 +1932,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 441
+            "y": 209
           },
           "id": 11,
           "options": {
@@ -1707,12 +1949,12 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.5.0-217209",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -1729,7 +1971,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "description": "States of connections by database/user/state (without idle* state and autovacuum)",
           "fieldConfig": {
@@ -1878,7 +2120,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 441
+            "y": 209
           },
           "id": 92,
           "options": {
@@ -1895,12 +2137,12 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.5.0-217209",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -1917,7 +2159,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "description": "Total number of sessions established to this database and closed by each reason. See the documentation for the pg_stat_database view for more details. Require PostgreSQL v14+",
           "fieldConfig": {
@@ -2065,7 +2307,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 449
+            "y": 281
           },
           "id": 95,
           "options": {
@@ -2082,12 +2324,12 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.5.0-217209",
+          "pluginVersion": "11.6.0-227265",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -2100,7 +2342,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -2114,7 +2356,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -2161,6 +2403,7 @@
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "bars",
                 "fillOpacity": 100,
                 "gradientMode": "none",
@@ -2264,7 +2507,7 @@
             "h": 8,
             "w": 9,
             "x": 0,
-            "y": 1493
+            "y": 1050
           },
           "id": 78,
           "options": {
@@ -2275,17 +2518,18 @@
               "showLegend": true
             },
             "tooltip": {
+              "hideZeros": false,
               "maxHeight": 600,
               "mode": "multi",
               "sort": "desc"
             }
           },
-          "pluginVersion": "7.5.7",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "sum by (level) (increase(postgres_log_messages_total{instance=\"$instance\",service_id=\"$postgres\"}[1m]))",
@@ -2316,6 +2560,7 @@
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 10,
                 "gradientMode": "none",
@@ -2375,7 +2620,7 @@
             "h": 8,
             "w": 9,
             "x": 9,
-            "y": 1493
+            "y": 1050
           },
           "id": 80,
           "options": {
@@ -2386,22 +2631,23 @@
               "showLegend": true
             },
             "tooltip": {
+              "hideZeros": false,
               "maxHeight": 600,
               "mode": "multi",
               "sort": "desc"
             }
           },
-          "pluginVersion": "7.5.7",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "postgres_log_directory_bytes{instance=\"$instance\",service_id=\"$postgres\"}",
               "instant": false,
-              "legendFormat": "__auto",
+              "legendFormat": "{{path}}",
               "range": true,
               "refId": "A"
             }
@@ -2442,10 +2688,10 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 5,
+            "h": 8,
             "w": 6,
             "x": 18,
-            "y": 1493
+            "y": 1050
           },
           "id": 83,
           "options": {
@@ -2460,12 +2706,12 @@
             },
             "showHeader": true
           },
-          "pluginVersion": "11.0.0",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "exemplar": false,
               "expr": "sum by (name,setting) (postgres_service_settings_info{instance=\"$instance\",service_id=\"$postgres\",name=~\"logging_collector|log_directory|log_filename\"})",
@@ -2567,7 +2813,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 531
+            "y": 1051
           },
           "id": 19,
           "options": {
@@ -2584,12 +2830,12 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.5.0-217209",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -2664,7 +2910,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 531
+            "y": 1051
           },
           "id": 20,
           "options": {
@@ -2681,12 +2927,12 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.5.0-217209",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -2762,7 +3008,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 1059
+            "y": 1171
           },
           "id": 21,
           "options": {
@@ -2779,12 +3025,12 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.5.0-217209",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -2860,7 +3106,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 1059
+            "y": 1171
           },
           "id": 22,
           "options": {
@@ -2877,12 +3123,12 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.5.0-217209",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -2971,7 +3217,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 460
+            "y": 3348
           },
           "id": 27,
           "options": {
@@ -2993,7 +3239,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "exemplar": true,
               "expr": "sum by (type) (postgres_activity_wait_events_in_flight{instance=\"$instance\",service_id=\"$postgres\"})",
@@ -3066,7 +3312,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 460
+            "y": 3348
           },
           "id": 28,
           "options": {
@@ -3088,7 +3334,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "exemplar": true,
               "expr": "topk(5, postgres_activity_wait_events_in_flight{instance=\"$instance\",service_id=\"$postgres\"})",
@@ -3161,7 +3407,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 468
+            "y": 3356
           },
           "id": 26,
           "options": {
@@ -3183,7 +3429,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "exemplar": true,
               "expr": "postgres_locks_in_flight{instance=\"$instance\",service_id=\"$postgres\"}",
@@ -3273,7 +3519,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 468
+            "y": 3356
           },
           "id": 29,
           "options": {
@@ -3295,7 +3541,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -3341,6 +3587,7 @@
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 10,
                 "gradientMode": "none",
@@ -3384,7 +3631,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 1152
+            "y": 21
           },
           "id": 41,
           "options": {
@@ -3395,17 +3642,18 @@
               "showLegend": true
             },
             "tooltip": {
+              "hideZeros": false,
               "maxHeight": 600,
               "mode": "multi",
               "sort": "desc"
             }
           },
-          "pluginVersion": "7.5.7",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "exemplar": true,
               "expr": "sum by (client_addr) (postgres_replication_lag_all_bytes{instance=\"$instance\",service_id=\"$postgres\"})",
@@ -3435,6 +3683,7 @@
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 10,
                 "gradientMode": "none",
@@ -3478,7 +3727,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 1152
+            "y": 21
           },
           "id": 38,
           "options": {
@@ -3489,17 +3738,18 @@
               "showLegend": true
             },
             "tooltip": {
+              "hideZeros": false,
               "maxHeight": 600,
               "mode": "multi",
               "sort": "desc"
             }
           },
-          "pluginVersion": "7.5.7",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "exemplar": true,
               "expr": "sum by (client_addr) (postgres_replication_lag_all_seconds{instance=\"$instance\",service_id=\"$postgres\"})",
@@ -3523,6 +3773,252 @@
         "x": 0,
         "y": 21
       },
+      "id": 126,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${ds}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "center",
+                "cellOptions": {
+                  "type": "auto"
+                },
+                "filterable": true,
+                "inspect": false
+              },
+              "links": [],
+              "mappings": [],
+              "max": 2.5,
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "#346f36cc",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/.*LSN/"
+                },
+                "properties": [
+                  {
+                    "id": "unit",
+                    "value": "hex"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byRegexp",
+                  "options": "/.*Time/"
+                },
+                "properties": [
+                  {
+                    "id": "unit",
+                    "value": "dateTimeAsLocal"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 24,
+            "x": 0,
+            "y": 22
+          },
+          "id": 127,
+          "options": {
+            "cellHeight": "sm",
+            "footer": {
+              "countRows": false,
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "showHeader": true
+          },
+          "pluginVersion": "11.5.0-219443",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${ds}"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "max by (subname) (postgres_stat_subscription_id{instance=\"$instance\",service_id=\"$postgres\"})",
+              "format": "table",
+              "hide": true,
+              "instant": true,
+              "interval": "",
+              "legendFormat": "",
+              "queryType": "measurements",
+              "refId": "E"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${ds}"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "max by (subname) (postgres_stat_subscription_pid{instance=\"$instance\",service_id=\"$postgres\"})",
+              "format": "table",
+              "hide": true,
+              "instant": true,
+              "interval": "",
+              "legendFormat": "",
+              "queryType": "measurements",
+              "refId": "F"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${ds}"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "max by (subname) (postgres_stat_subscription_received_lsn{instance=\"$instance\",service_id=\"$postgres\"})",
+              "format": "table",
+              "hide": false,
+              "instant": true,
+              "interval": "",
+              "legendFormat": "",
+              "queryType": "measurements",
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${ds}"
+              },
+              "exemplar": false,
+              "expr": "max by (subname) (postgres_stat_subscription_reported_lsn{instance=\"$instance\",service_id=\"$postgres\"})",
+              "format": "table",
+              "hide": false,
+              "instant": true,
+              "interval": "",
+              "legendFormat": "",
+              "queryType": "measurements",
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${ds}"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "max by (subname) (postgres_stat_subscription_msg_send_time{instance=\"$instance\",service_id=\"$postgres\"}) * 1000",
+              "format": "table",
+              "hide": false,
+              "instant": true,
+              "interval": "",
+              "legendFormat": "",
+              "queryType": "measurements",
+              "refId": "C"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${ds}"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "max by (subname) (postgres_stat_subscription_msg_recv_time{instance=\"$instance\",service_id=\"$postgres\"}) * 1000",
+              "format": "table",
+              "hide": false,
+              "instant": true,
+              "interval": "",
+              "legendFormat": "",
+              "queryType": "measurements",
+              "refId": "D"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${ds}"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "max by (subname) (postgres_stat_subscription_reported_time{instance=\"$instance\",service_id=\"$postgres\"}) * 1000",
+              "format": "table",
+              "hide": false,
+              "instant": true,
+              "interval": "",
+              "legendFormat": "",
+              "queryType": "measurements",
+              "refId": "G"
+            }
+          ],
+          "title": "",
+          "transformations": [
+            {
+              "id": "seriesToColumns",
+              "options": {
+                "byField": "subname"
+              }
+            },
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "Time": true,
+                  "Time 1": true,
+                  "Time 2": true,
+                  "Time 3": true,
+                  "Time 4": true,
+                  "Time 5": true,
+                  "Time 6": true,
+                  "Time 7": true,
+                  "Value #C": false
+                },
+                "includeByName": {},
+                "indexByName": {},
+                "renameByName": {
+                  "Value #A": "ReceiveLSN",
+                  "Value #B": "ReportedLSN",
+                  "Value #C": "MsgSendTime",
+                  "Value #D": "MsgRecvTime",
+                  "Value #E": "SubID",
+                  "Value #F": "SubPID",
+                  "Value #G": "ReportedTime",
+                  "subname": "Subscription"
+                }
+              }
+            }
+          ],
+          "type": "table"
+        }
+      ],
+      "title": "Logical replication",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 22
+      },
       "id": 37,
       "panels": [
         {
@@ -3543,6 +4039,7 @@
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 10,
                 "gradientMode": "none",
@@ -3601,7 +4098,7 @@
             "h": 8,
             "w": 9,
             "x": 0,
-            "y": 1481
+            "y": 35
           },
           "id": 33,
           "options": {
@@ -3612,17 +4109,18 @@
               "showLegend": true
             },
             "tooltip": {
+              "hideZeros": false,
               "maxHeight": 600,
               "mode": "multi",
               "sort": "desc"
             }
           },
-          "pluginVersion": "7.5.7",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "exemplar": true,
               "expr": "rate(postgres_wal_written_bytes_total{instance=\"$instance\",service_id=\"$postgres\"}[1m])",
@@ -3652,6 +4150,7 @@
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 10,
                 "gradientMode": "none",
@@ -3693,13 +4192,36 @@
               {
                 "matcher": {
                   "id": "byName",
-                  "options": "size"
+                  "options": "WAL size"
                 },
                 "properties": [
                   {
                     "id": "color",
                     "value": {
                       "fixedColor": "light-blue",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Limit by max_wal_size"
+                },
+                "properties": [
+                  {
+                    "id": "custom.lineWidth",
+                    "value": 2
+                  },
+                  {
+                    "id": "custom.fillOpacity",
+                    "value": 0
+                  },
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "dark-red",
                       "mode": "fixed"
                     }
                   }
@@ -3711,7 +4233,7 @@
             "h": 8,
             "w": 9,
             "x": 9,
-            "y": 1481
+            "y": 35
           },
           "id": 35,
           "options": {
@@ -3722,23 +4244,39 @@
               "showLegend": true
             },
             "tooltip": {
+              "hideZeros": false,
               "maxHeight": 600,
               "mode": "multi",
               "sort": "desc"
             }
           },
-          "pluginVersion": "7.5.7",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
+              "editorMode": "code",
               "exemplar": true,
               "expr": "postgres_wal_directory_bytes{instance=\"$instance\",service_id=\"$postgres\"}",
               "interval": "",
-              "legendFormat": "size",
+              "legendFormat": "WAL size",
+              "range": true,
               "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${ds}"
+              },
+              "editorMode": "code",
+              "expr": "postgres_service_settings_info{instance=\"$instance\",service_id=\"$postgres\",name=\"max_wal_size\"}",
+              "hide": false,
+              "instant": false,
+              "legendFormat": "Limit by max_wal_size",
+              "range": true,
+              "refId": "B"
             }
           ],
           "title": "WAL directory size",
@@ -3747,7 +4285,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "description": "WAL settings",
           "fieldConfig": {
@@ -3780,7 +4318,7 @@
             "h": 8,
             "w": 6,
             "x": 18,
-            "y": 1481
+            "y": 35
           },
           "id": 87,
           "options": {
@@ -3795,12 +4333,12 @@
             },
             "showHeader": true
           },
-          "pluginVersion": "11.1.0",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "exemplar": false,
               "expr": "sum by (name,setting) (postgres_service_settings_info{instance=\"$instance\",service_id=\"$postgres\",name=~\"(max|min)_wal_size|max_slot_wal_keep_size|full_page_writes|wal_keep_(size|segments)|wal_(compression|level|log_hints)\"})",
@@ -3849,7 +4387,333 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 22
+        "y": 23
+      },
+      "id": 44,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${ds}"
+          },
+          "description": "Total amount of WAL segments (in bytes) which are not archived yet.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 10,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "never",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  }
+                ]
+              },
+              "unit": "bytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 100
+          },
+          "id": 34,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "maxHeight": 600,
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "11.5.0-219443",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${ds}"
+              },
+              "exemplar": true,
+              "expr": "postgres_archiver_lag_bytes{instance=\"$instance\",service_id=\"$postgres\"}",
+              "interval": "",
+              "legendFormat": "bytes",
+              "refId": "A"
+            }
+          ],
+          "title": "WAL archiving lag, bytes",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${ds}"
+          },
+          "description": "Total amount of WAL segments processed per minute.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 10,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "never",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  }
+                ]
+              },
+              "unit": "bytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 100
+          },
+          "id": 42,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "maxHeight": 600,
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "11.5.0-219443",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${ds}"
+              },
+              "exemplar": true,
+              "expr": "increase(postgres_archiver_archived_total{instance=\"$instance\",service_id=\"$postgres\"}[1m])",
+              "interval": "",
+              "legendFormat": "archived",
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${ds}"
+              },
+              "exemplar": true,
+              "expr": "increase(postgres_archiver_failed_total{instance=\"$instance\",service_id=\"$postgres\"}[1m])",
+              "hide": false,
+              "interval": "",
+              "legendFormat": "failed",
+              "refId": "B"
+            }
+          ],
+          "title": "WAL archiving, per minute",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${ds}"
+          },
+          "description": "Important: when WAL archiving is disabled, metrics will not be collected.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "auto",
+                "cellOptions": {
+                  "type": "color-text"
+                },
+                "filterable": false,
+                "inspect": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "name"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 220
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 108
+          },
+          "id": 85,
+          "options": {
+            "cellHeight": "sm",
+            "footer": {
+              "countRows": false,
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "showHeader": true
+          },
+          "pluginVersion": "11.5.0-219443",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${ds}"
+              },
+              "exemplar": false,
+              "expr": "sum by (name,setting) (postgres_service_settings_info{instance=\"$instance\",service_id=\"$postgres\",name=~\"archive_.+\"})",
+              "format": "table",
+              "instant": true,
+              "interval": "",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "title": "WAL archiving settings",
+          "transformations": [
+            {
+              "id": "filterFieldsByName",
+              "options": {
+                "include": {
+                  "names": [
+                    "name",
+                    "setting"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {},
+                "includeByName": {},
+                "indexByName": {},
+                "renameByName": {
+                  "name": "Name",
+                  "setting": "Value"
+                }
+              }
+            }
+          ],
+          "type": "table"
+        }
+      ],
+      "title": "WAL archiving",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 24
       },
       "id": 50,
       "panels": [
@@ -3871,6 +4735,7 @@
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 80,
                 "gradientMode": "none",
@@ -3953,6 +4818,33 @@
                     }
                   }
                 ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Limit by autovacuum_max_workers"
+                },
+                "properties": [
+                  {
+                    "id": "custom.lineWidth",
+                    "value": 2
+                  },
+                  {
+                    "id": "custom.drawStyle",
+                    "value": "line"
+                  },
+                  {
+                    "id": "custom.fillOpacity",
+                    "value": 0
+                  },
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "dark-red",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
               }
             ]
           },
@@ -3960,7 +4852,7 @@
             "h": 8,
             "w": 9,
             "x": 0,
-            "y": 1482
+            "y": 37
           },
           "id": 46,
           "options": {
@@ -3971,23 +4863,39 @@
               "showLegend": true
             },
             "tooltip": {
+              "hideZeros": false,
               "maxHeight": 600,
               "mode": "multi",
               "sort": "desc"
             }
           },
-          "pluginVersion": "7.5.7",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
+              "editorMode": "code",
               "exemplar": true,
               "expr": "postgres_activity_vacuums_in_flight{instance=\"$instance\",service_id=\"$postgres\"}",
               "interval": "",
               "legendFormat": "{{ type }}",
+              "range": true,
               "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${ds}"
+              },
+              "editorMode": "code",
+              "expr": "postgres_service_settings_info{instance=\"$instance\",service_id=\"$postgres\",name=\"autovacuum_max_workers\"}",
+              "hide": false,
+              "instant": false,
+              "legendFormat": "Limit by autovacuum_max_workers",
+              "range": true,
+              "refId": "B"
             }
           ],
           "title": "Vacuums",
@@ -4011,6 +4919,7 @@
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 80,
                 "gradientMode": "none",
@@ -4054,7 +4963,7 @@
             "h": 8,
             "w": 9,
             "x": 9,
-            "y": 1482
+            "y": 37
           },
           "id": 47,
           "options": {
@@ -4065,17 +4974,18 @@
               "showLegend": true
             },
             "tooltip": {
+              "hideZeros": false,
               "maxHeight": 600,
               "mode": "multi",
               "sort": "desc"
             }
           },
-          "pluginVersion": "7.5.7",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "exemplar": true,
               "expr": "topk(5, increase(postgres_table_maintenance_total{type=\"autovacuum\",instance=\"$instance\",service_id=\"$postgres\"}[1m]))",
@@ -4123,7 +5033,7 @@
             "h": 8,
             "w": 6,
             "x": 18,
-            "y": 1482
+            "y": 37
           },
           "id": 86,
           "options": {
@@ -4138,12 +5048,12 @@
             },
             "showHeader": true
           },
-          "pluginVersion": "11.1.0",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "exemplar": false,
               "expr": "sum by (name,setting) (postgres_service_settings_info{instance=\"$instance\",service_id=\"$postgres\",name=~\"^(auto)?vacuum.+\"})",
@@ -4200,6 +5110,7 @@
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 0,
                 "gradientMode": "none",
@@ -4289,7 +5200,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 1490
+            "y": 77
           },
           "id": 48,
           "options": {
@@ -4300,17 +5211,18 @@
               "showLegend": true
             },
             "tooltip": {
+              "hideZeros": false,
               "maxHeight": 600,
               "mode": "multi",
               "sort": "asc"
             }
           },
-          "pluginVersion": "7.5.7",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -4342,6 +5254,7 @@
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 0,
                 "gradientMode": "none",
@@ -4431,7 +5344,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 1498
+            "y": 85
           },
           "id": 88,
           "options": {
@@ -4442,17 +5355,18 @@
               "showLegend": true
             },
             "tooltip": {
+              "hideZeros": false,
               "maxHeight": 600,
               "mode": "multi",
               "sort": "asc"
             }
           },
-          "pluginVersion": "7.5.7",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -4476,7 +5390,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 23
+        "y": 25
       },
       "id": 55,
       "panels": [
@@ -4570,9 +5484,9 @@
           },
           "gridPos": {
             "h": 8,
-            "w": 12,
+            "w": 9,
             "x": 0,
-            "y": 536
+            "y": 118
           },
           "id": 52,
           "options": {
@@ -4589,12 +5503,12 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.5.0-217209",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "exemplar": true,
               "expr": "increase(postgres_checkpoints_total{instance=\"$instance\",service_id=\"$postgres\"}[1m])",
@@ -4741,9 +5655,9 @@
           },
           "gridPos": {
             "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 536
+            "w": 9,
+            "x": 9,
+            "y": 118
           },
           "id": 53,
           "options": {
@@ -4760,12 +5674,12 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.5.0-217209",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -4790,7 +5704,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "exemplar": true,
               "expr": "sum(rate(postgres_database_temp_bytes_total{instance=\"$instance\",service_id=\"$postgres\"}[1m]))",
@@ -4802,6 +5716,102 @@
           ],
           "title": "Background writes",
           "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${ds}"
+          },
+          "description": "Checkpoint and bgwriter settings.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "auto",
+                "cellOptions": {
+                  "type": "color-text"
+                },
+                "filterable": false,
+                "inspect": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 18,
+            "y": 118
+          },
+          "id": 122,
+          "options": {
+            "cellHeight": "sm",
+            "footer": {
+              "countRows": false,
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "showHeader": true
+          },
+          "pluginVersion": "11.5.0-219443",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${ds}"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "sum by (name,setting) (postgres_service_settings_info{instance=\"$instance\",service_id=\"$postgres\",name=~\"(bgwriter|checkpoint)_.*\"})",
+              "format": "table",
+              "instant": true,
+              "interval": "",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "title": "Checkpoint/Bgwriter settings",
+          "transformations": [
+            {
+              "id": "filterFieldsByName",
+              "options": {
+                "include": {
+                  "names": [
+                    "name",
+                    "setting"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {},
+                "includeByName": {},
+                "indexByName": {},
+                "renameByName": {
+                  "name": "Name",
+                  "setting": "Value"
+                }
+              }
+            }
+          ],
+          "type": "table"
         }
       ],
       "title": "Background writes",
@@ -4813,7 +5823,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 24
+        "y": 26
       },
       "id": 103,
       "panels": [
@@ -4878,7 +5888,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 25
+            "y": 2017
           },
           "id": 102,
           "options": {
@@ -4895,16 +5905,16 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.6.0-227265",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_reads{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"autovacuum.*\"}*8192)[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_read_bytes{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"autovacuum.*\"}[1m]))>0",
               "interval": "",
               "legendFormat": "{{ backend_type }}/{{ context }}",
               "range": true,
@@ -4913,11 +5923,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_reads{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"background.*\"}*8192)[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_read_bytes{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"background.*\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{ backend_type }}/{{ context }}",
@@ -4927,11 +5937,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_reads{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"client backend\"}*8192)[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_read_bytes{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"client backend\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{ backend_type }}/{{ context }}",
@@ -4941,11 +5951,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_reads{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"checkpointer\"}*8192)[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_read_bytes{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"checkpointer\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{ backend_type }}/{{ context }}",
@@ -4955,11 +5965,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type) (rate(postgres_stat_io_reads{instance=\"$instance\",service_id=\"$postgres\",backend_type!~\"checkpointer|client backend.*|background.*|autovacuum.*\"}*8192)[1m])>0",
+              "expr": "sum by (backend_type) (rate(postgres_stat_io_read_bytes{instance=\"$instance\",service_id=\"$postgres\",backend_type!~\"checkpointer|client backend.*|background.*|autovacuum.*\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "Other",
@@ -5031,7 +6041,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 25
+            "y": 2017
           },
           "id": 104,
           "options": {
@@ -5048,16 +6058,16 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.6.0-227265",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_writes{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"autovacuum.*\"}*8192)[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_write_bytes{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"autovacuum.*\"}[1m]))>0",
               "interval": "",
               "legendFormat": "{{ backend_type }}/{{ context }}",
               "range": true,
@@ -5066,11 +6076,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_writes{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"background.*\"}*8192)[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_write_bytes{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"background.*\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{ backend_type }}/{{ context }}",
@@ -5080,11 +6090,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_writes{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"client backend\"}*8192)[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_write_bytes{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"client backend\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{ backend_type }}/{{ context }}",
@@ -5094,11 +6104,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_writes{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"checkpointer\"}*8192)[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_write_bytes{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"checkpointer\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{ backend_type }}/{{ context }}",
@@ -5108,11 +6118,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type) (rate(postgres_stat_io_writes{instance=\"$instance\",service_id=\"$postgres\",backend_type!~\"checkpointer|client backend.*|background.*|autovacuum.*\"}*8192)[1m])>0",
+              "expr": "sum by (backend_type) (rate(postgres_stat_io_write_bytes{instance=\"$instance\",service_id=\"$postgres\",backend_type!~\"checkpointer|client backend.*|background.*|autovacuum.*\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "Other",
@@ -5184,7 +6194,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 33
+            "y": 2025
           },
           "id": 107,
           "options": {
@@ -5201,16 +6211,16 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.6.0-227265",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (increase(postgres_stat_io_read_time{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"autovacuum.*\"}))>0",
+              "expr": "sum by (backend_type,context) (increase(postgres_stat_io_read_time{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"autovacuum.*\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{backend_type}}/{{context}}",
@@ -5220,11 +6230,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (increase(postgres_stat_io_read_time{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"background.*\"}))>0",
+              "expr": "sum by (backend_type,context) (increase(postgres_stat_io_read_time{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"background.*\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{backend_type}}/{{context}}",
@@ -5234,11 +6244,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (increase(postgres_stat_io_read_time{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"client backend\"}))>0",
+              "expr": "sum by (backend_type,context) (increase(postgres_stat_io_read_time{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"client backend\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{backend_type}}/{{context}}",
@@ -5248,11 +6258,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (increase(postgres_stat_io_read_time{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"checkpointer\"}))>0",
+              "expr": "sum by (backend_type,context) (increase(postgres_stat_io_read_time{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"checkpointer\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{backend_type}}/{{context}}",
@@ -5262,11 +6272,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum(increase(postgres_stat_io_read_time{instance=\"$instance\",service_id=\"$postgres\",backend_type!~\"checkpointer|client backend.*|background.*|autovacuum.*\"}))>0",
+              "expr": "sum(increase(postgres_stat_io_read_time{instance=\"$instance\",service_id=\"$postgres\",backend_type!~\"checkpointer|client backend.*|background.*|autovacuum.*\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "Other",
@@ -5338,7 +6348,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 33
+            "y": 2025
           },
           "id": 108,
           "options": {
@@ -5355,16 +6365,16 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.6.0-227265",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (increase(postgres_stat_io_write_time{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"autovacuum.*\"}))>0",
+              "expr": "sum by (backend_type,context) (increase(postgres_stat_io_write_time{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"autovacuum.*\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{backend_type}}/{{context}}",
@@ -5374,11 +6384,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (increase(postgres_stat_io_write_time{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"background.*\"}))>0",
+              "expr": "sum by (backend_type,context) (increase(postgres_stat_io_write_time{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"background.*\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{backend_type}}/{{context}}",
@@ -5388,11 +6398,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (increase(postgres_stat_io_write_time{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"client backend\"}))>0",
+              "expr": "sum by (backend_type,context) (increase(postgres_stat_io_write_time{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"client backend\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{backend_type}}/{{context}}",
@@ -5402,11 +6412,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (increase(postgres_stat_io_write_time{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"checkpointer\"}))>0",
+              "expr": "sum by (backend_type,context) (increase(postgres_stat_io_write_time{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"checkpointer\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{backend_type}}/{{context}}",
@@ -5416,11 +6426,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum(increase(postgres_stat_io_write_time{instance=\"$instance\",service_id=\"$postgres\",backend_type!~\"checkpointer|client backend.*|background.*|autovacuum.*\"}))>0",
+              "expr": "sum(increase(postgres_stat_io_write_time{instance=\"$instance\",service_id=\"$postgres\",backend_type!~\"checkpointer|client backend.*|background.*|autovacuum.*\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "Other",
@@ -5492,7 +6502,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 41
+            "y": 2033
           },
           "id": 109,
           "options": {
@@ -5509,16 +6519,16 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.6.0-227265",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_writebacks{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"autovacuum.*\"}*8192)[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_writebacks{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"autovacuum.*\"}[1m])*8192)>0",
               "interval": "",
               "legendFormat": "{{backend_type}}/{{context}}",
               "range": true,
@@ -5527,11 +6537,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_writebacks{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"background.*\"}*8192)[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_writebacks{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"background.*\"}[1m])*8192)>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{backend_type}}/{{context}}",
@@ -5541,11 +6551,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_writebacks{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"client backend\"}*8192)[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_writebacks{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"client backend\"}[1m])*8192)>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{backend_type}}/{{context}}",
@@ -5555,11 +6565,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_writebacks{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"checkpointer\"}*8192)[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_writebacks{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"checkpointer\"}[1m])*8192)>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{ backend_type }}/{{ context }}",
@@ -5569,11 +6579,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type) (rate(postgres_stat_io_writebacks{instance=\"$instance\",service_id=\"$postgres\",backend_type!~\"checkpointer|client backend.*|background.*|autovacuum.*\"}*8192)[1m])>0",
+              "expr": "sum by (backend_type) (rate(postgres_stat_io_writebacks{instance=\"$instance\",service_id=\"$postgres\",backend_type!~\"checkpointer|client backend.*|background.*|autovacuum.*\"}[1m])*8192)>0",
               "hide": false,
               "interval": "",
               "legendFormat": "Other",
@@ -5645,9 +6655,9 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 41
+            "y": 2033
           },
-          "id": 120,
+          "id": 119,
           "options": {
             "legend": {
               "calcs": [],
@@ -5662,16 +6672,16 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.6.0-227265",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_extend_bytes{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"autovacuum.*\"})[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_extend_bytes{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"autovacuum.*\"}[1m]))>0",
               "interval": "",
               "legendFormat": "{{backend_type}}/{{context}}",
               "range": true,
@@ -5680,11 +6690,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_extend_bytes{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"background.*\"})[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_extend_bytes{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"background.*\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{backend_type}}/{{context}}",
@@ -5694,11 +6704,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_extend_bytes{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"client backend\"})[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_extend_bytes{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"client backend\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{backend_type}}/{{context}}",
@@ -5708,11 +6718,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_extend_bytes{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"checkpointer\"})[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_extend_bytes{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"checkpointer\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{ backend_type }}/{{ context }}",
@@ -5722,11 +6732,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type) (rate(postgres_stat_io_extend_bytes{instance=\"$instance\",service_id=\"$postgres\",backend_type!~\"checkpointer|client backend.*|background.*|autovacuum.*\"})[1m])>0",
+              "expr": "sum by (backend_type) (rate(postgres_stat_io_extend_bytes{instance=\"$instance\",service_id=\"$postgres\",backend_type!~\"checkpointer|client backend.*|background.*|autovacuum.*\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "Other",
@@ -5798,7 +6808,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 49
+            "y": 2041
           },
           "id": 105,
           "options": {
@@ -5815,16 +6825,16 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.6.0-227265",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_evictions{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"autovacuum.*\"})[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_evictions{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"autovacuum.*\"}[1m]))>0",
               "interval": "",
               "legendFormat": "{{ backend_type }}/{{ context }}",
               "range": true,
@@ -5833,11 +6843,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_evictions{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"background.*\"})[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_evictions{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"background.*\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{ backend_type }}/{{ context }}",
@@ -5847,11 +6857,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_evictions{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"client backend\"})[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_evictions{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"client backend\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{ backend_type }}/{{ context }}",
@@ -5861,11 +6871,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_evictions{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"checkpointer\"})[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_evictions{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"checkpointer\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{ backend_type }}/{{ context }}",
@@ -5875,11 +6885,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type) (rate(postgres_stat_io_evictions{instance=\"$instance\",service_id=\"$postgres\",backend_type!~\"checkpointer|client backend.*|background.*|autovacuum.*\"})[1m])>0",
+              "expr": "sum by (backend_type) (rate(postgres_stat_io_evictions{instance=\"$instance\",service_id=\"$postgres\",backend_type!~\"checkpointer|client backend.*|background.*|autovacuum.*\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "Other",
@@ -5943,7 +6953,7 @@
                   }
                 ]
               },
-              "unit": "binBps"
+              "unit": "none"
             },
             "overrides": []
           },
@@ -5951,7 +6961,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 49
+            "y": 2041
           },
           "id": 106,
           "options": {
@@ -5968,16 +6978,16 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.6.0-227265",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_fsyncs{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"autovacuum.*\"})[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_fsyncs{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"autovacuum.*\"}[1m]))>0",
               "interval": "",
               "legendFormat": "{{ backend_type }}/{{ context }}",
               "range": true,
@@ -5986,11 +6996,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_fsyncs{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"background.*\"})[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_fsyncs{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"background.*\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{ backend_type }}/{{ context }}",
@@ -6000,11 +7010,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_fsyncs{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"client backend\"})[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_fsyncs{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"client backend\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{ backend_type }}/{{ context }}",
@@ -6014,11 +7024,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_fsyncs{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"checkpointer\"})[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_fsyncs{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"checkpointer\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{ backend_type }}/{{ context }}",
@@ -6028,11 +7038,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type) (rate(postgres_stat_io_fsyncs{instance=\"$instance\",service_id=\"$postgres\",backend_type!~\"checkpointer|client backend.*|background.*|autovacuum.*\"})[1m])>0",
+              "expr": "sum by (backend_type) (rate(postgres_stat_io_fsyncs{instance=\"$instance\",service_id=\"$postgres\",backend_type!~\"checkpointer|client backend.*|background.*|autovacuum.*\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "Other",
@@ -6104,9 +7114,9 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 57
+            "y": 2049
           },
-          "id": 119,
+          "id": 120,
           "options": {
             "legend": {
               "calcs": [],
@@ -6121,16 +7131,16 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.6.0-227265",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_reuses{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"autovacuum.*\"})[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_reuses{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"autovacuum.*\"}[1m]))>0",
               "interval": "",
               "legendFormat": "{{backend_type}}/{{context}}",
               "range": true,
@@ -6139,11 +7149,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_reuses{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"background.*\"})[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_reuses{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"background.*\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{backend_type}}/{{context}}",
@@ -6153,11 +7163,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_reuses{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"client backend\"})[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_reuses{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"client backend\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{backend_type}}/{{context}}",
@@ -6167,11 +7177,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_reuses{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"checkpointer\"})[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_reuses{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"checkpointer\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{ backend_type }}/{{ context }}",
@@ -6181,11 +7191,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type) (rate(postgres_stat_io_reuses{instance=\"$instance\",service_id=\"$postgres\",backend_type!~\"checkpointer|client backend.*|background.*|autovacuum.*\"})[1m])>0",
+              "expr": "sum by (backend_type) (rate(postgres_stat_io_reuses{instance=\"$instance\",service_id=\"$postgres\",backend_type!~\"checkpointer|client backend.*|background.*|autovacuum.*\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "Other",
@@ -6257,7 +7267,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 57
+            "y": 2049
           },
           "id": 110,
           "options": {
@@ -6274,16 +7284,16 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.6.0-227265",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_hits{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"autovacuum.*\"})[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_hits{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"autovacuum.*\"}[1m]))>0",
               "interval": "",
               "legendFormat": "{{backend_type}}/{{context}}",
               "range": true,
@@ -6292,11 +7302,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_hits{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"background.*\"})[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_hits{instance=\"$instance\",service_id=\"$postgres\",backend_type=~\"background.*\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{backend_type}}/{{context}}",
@@ -6306,11 +7316,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_hits{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"client backend\"})[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_hits{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"client backend\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{backend_type}}/{{context}}",
@@ -6320,11 +7330,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_hits{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"checkpointer\"})[1m])>0",
+              "expr": "sum by (backend_type,context) (rate(postgres_stat_io_hits{instance=\"$instance\",service_id=\"$postgres\",backend_type=\"checkpointer\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "{{ backend_type }}/{{ context }}",
@@ -6334,11 +7344,11 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (backend_type) (rate(postgres_stat_io_hits{instance=\"$instance\",service_id=\"$postgres\",backend_type!~\"checkpointer|client backend.*|background.*|autovacuum.*\"})[1m])>0",
+              "expr": "sum by (backend_type) (rate(postgres_stat_io_hits{instance=\"$instance\",service_id=\"$postgres\",backend_type!~\"checkpointer|client backend.*|background.*|autovacuum.*\"}[1m]))>0",
               "hide": false,
               "interval": "",
               "legendFormat": "Other",
@@ -6359,7 +7369,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 25
+        "y": 27
       },
       "id": 111,
       "panels": [
@@ -6424,7 +7434,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 90
+            "y": 132
           },
           "id": 117,
           "options": {
@@ -6441,16 +7451,16 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.6.0-223626",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (name) (rate(postgres_stat_slru_flushes{instance=\"$instance\",service_id=\"$postgres\"})[1m])>0",
+              "expr": "sum by (name) (rate(postgres_stat_slru_flushes{instance=\"$instance\",service_id=\"$postgres\"}[1m]))>0",
               "interval": "",
               "legendFormat": "{{name}}",
               "range": true,
@@ -6521,7 +7531,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 90
+            "y": 132
           },
           "id": 118,
           "options": {
@@ -6538,16 +7548,16 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.6.0-223626",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (name) (rate(postgres_stat_slru_truncates{instance=\"$instance\",service_id=\"$postgres\"})[1m])>0",
+              "expr": "sum by (name) (rate(postgres_stat_slru_truncates{instance=\"$instance\",service_id=\"$postgres\"}[1m]))>0",
               "interval": "",
               "legendFormat": "{{name}}",
               "range": true,
@@ -6618,7 +7628,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 98
+            "y": 140
           },
           "id": 112,
           "options": {
@@ -6635,16 +7645,16 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.6.0-223626",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (name) (rate(postgres_stat_slru_blks_hit{instance=\"$instance\",service_id=\"$postgres\"})[1m])>0",
+              "expr": "sum by (name) (rate(postgres_stat_slru_blks_hit{instance=\"$instance\",service_id=\"$postgres\"}[1m]))>0",
               "interval": "",
               "legendFormat": "{{name}}",
               "range": true,
@@ -6715,7 +7725,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 98
+            "y": 140
           },
           "id": 113,
           "options": {
@@ -6732,16 +7742,16 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.6.0-223626",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (name) (rate(postgres_stat_slru_blks_exists{instance=\"$instance\",service_id=\"$postgres\"})[1m])>0",
+              "expr": "sum by (name) (rate(postgres_stat_slru_blks_exists{instance=\"$instance\",service_id=\"$postgres\"}[1m]))>0",
               "interval": "",
               "legendFormat": "{{name}}",
               "range": true,
@@ -6812,7 +7822,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 106
+            "y": 148
           },
           "id": 114,
           "options": {
@@ -6829,16 +7839,16 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.6.0-223626",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (name) (rate(postgres_stat_slru_blks_read{instance=\"$instance\",service_id=\"$postgres\"})[1m])>0",
+              "expr": "sum by (name) (rate(postgres_stat_slru_blks_read{instance=\"$instance\",service_id=\"$postgres\"}[1m]))>0",
               "interval": "",
               "legendFormat": "{{name}}",
               "range": true,
@@ -6909,7 +7919,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 106
+            "y": 148
           },
           "id": 115,
           "options": {
@@ -6926,16 +7936,16 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.6.0-223626",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (name) (rate(postgres_stat_slru_blks_written{instance=\"$instance\",service_id=\"$postgres\"})[1m])>0",
+              "expr": "sum by (name) (rate(postgres_stat_slru_blks_written{instance=\"$instance\",service_id=\"$postgres\"}[1m]))>0",
               "interval": "",
               "legendFormat": "{{name}}",
               "range": true,
@@ -7006,7 +8016,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 114
+            "y": 156
           },
           "id": 116,
           "options": {
@@ -7023,16 +8033,16 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.6.0-223626",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "sum by (name) (rate(postgres_stat_slru_blks_zeroed{instance=\"$instance\",service_id=\"$postgres\"})[1m])>0",
+              "expr": "sum by (name) (rate(postgres_stat_slru_blks_zeroed{instance=\"$instance\",service_id=\"$postgres\"}[1m]))>0",
               "interval": "",
               "legendFormat": "{{name}}",
               "range": true,
@@ -7052,7 +8062,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 26
+        "y": 28
       },
       "id": 72,
       "panels": [
@@ -7118,7 +8128,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 666
+            "y": 41
           },
           "id": 65,
           "options": {
@@ -7135,12 +8145,12 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.5.0-217209",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "exemplar": true,
               "expr": "postgres_tablespace_directory_bytes{instance=\"$instance\",service_id=\"$postgres\"}",
@@ -7163,7 +8173,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "exemplar": true,
               "expr": "postgres_log_directory_bytes{instance=\"$instance\",service_id=\"$postgres\"}",
@@ -7238,7 +8248,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 666
+            "y": 41
           },
           "id": 66,
           "options": {
@@ -7255,12 +8265,12 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.5.0-217209",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -7336,7 +8346,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 690
+            "y": 49
           },
           "id": 69,
           "options": {
@@ -7353,12 +8363,12 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.5.0-217209",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -7434,7 +8444,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 690
+            "y": 49
           },
           "id": 70,
           "options": {
@@ -7451,12 +8461,12 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.5.0-217209",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -7532,7 +8542,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 698
+            "y": 57
           },
           "id": 67,
           "options": {
@@ -7549,12 +8559,12 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.5.0-217209",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -7630,7 +8640,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 698
+            "y": 57
           },
           "id": 68,
           "options": {
@@ -7647,12 +8657,12 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.5.0-217209",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -7665,6 +8675,104 @@
           ],
           "title": "Temporary files in-flight",
           "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${ds}"
+          },
+          "description": "System catalog size in bytes.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 10,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "never",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  }
+                ]
+              },
+              "unit": "bytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 65
+          },
+          "id": 123,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "maxHeight": 600,
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "11.5.0-219443",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${ds}"
+              },
+              "editorMode": "code",
+              "exemplar": true,
+              "expr": "postgres_schema_system_catalog_bytes{instance=\"$instance\",service_id=\"$postgres\",database=~\"$database\"}",
+              "interval": "",
+              "legendFormat": "{{ database }}",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "System catalog",
+          "type": "timeseries"
         }
       ],
       "title": "Disk space usage",
@@ -7676,7 +8784,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 27
+        "y": 29
       },
       "id": 63,
       "panels": [
@@ -7742,7 +8850,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 1314
+            "y": 214
           },
           "id": 57,
           "options": {
@@ -7759,12 +8867,12 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.5.0-217209",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -7840,7 +8948,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 1314
+            "y": 214
           },
           "id": 60,
           "options": {
@@ -7857,12 +8965,12 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.5.0-217209",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -7938,7 +9046,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 1322
+            "y": 222
           },
           "id": 89,
           "options": {
@@ -7955,12 +9063,12 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.5.0-217209",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -8036,7 +9144,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 1322
+            "y": 222
           },
           "id": 59,
           "options": {
@@ -8053,12 +9161,12 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "11.5.0-217209",
+          "pluginVersion": "11.5.0-219443",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -8133,7 +9241,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 1330
+            "y": 230
           },
           "id": 58,
           "options": {
@@ -8154,7 +9262,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -8229,7 +9337,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 1330
+            "y": 230
           },
           "id": 61,
           "options": {
@@ -8250,7 +9358,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -8325,7 +9433,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 1338
+            "y": 238
           },
           "id": 94,
           "options": {
@@ -8346,7 +9454,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -8413,7 +9521,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 1338
+            "y": 238
           },
           "id": 93,
           "options": {
@@ -8433,7 +9541,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -8491,336 +9599,10 @@
       ],
       "title": "Tables",
       "type": "row"
-    },
-    {
-      "collapsed": true,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 28
-      },
-      "id": 44,
-      "panels": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${ds}"
-          },
-          "description": "Total amount of WAL segments (in bytes) which are not archived yet.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisBorderShow": false,
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "barWidthFactor": 0.6,
-                "drawStyle": "line",
-                "fillOpacity": 10,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "insertNulls": false,
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "never",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "mappings": [],
-              "min": 0,
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  }
-                ]
-              },
-              "unit": "bytes"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 668
-          },
-          "id": 34,
-          "options": {
-            "legend": {
-              "calcs": [],
-              "displayMode": "list",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "hideZeros": false,
-              "maxHeight": 600,
-              "mode": "multi",
-              "sort": "desc"
-            }
-          },
-          "pluginVersion": "11.5.0-217209",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
-              },
-              "exemplar": true,
-              "expr": "postgres_archiver_lag_bytes{instance=\"$instance\",service_id=\"$postgres\"}",
-              "interval": "",
-              "legendFormat": "bytes",
-              "refId": "A"
-            }
-          ],
-          "title": "WAL archiving lag, bytes",
-          "type": "timeseries"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${ds}"
-          },
-          "description": "Total amount of WAL segments processed per minute.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisBorderShow": false,
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "barWidthFactor": 0.6,
-                "drawStyle": "line",
-                "fillOpacity": 10,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "insertNulls": false,
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "never",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "mappings": [],
-              "min": 0,
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  }
-                ]
-              },
-              "unit": "bytes"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 668
-          },
-          "id": 42,
-          "options": {
-            "legend": {
-              "calcs": [],
-              "displayMode": "list",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "hideZeros": false,
-              "maxHeight": 600,
-              "mode": "multi",
-              "sort": "desc"
-            }
-          },
-          "pluginVersion": "11.5.0-217209",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
-              },
-              "exemplar": true,
-              "expr": "increase(postgres_archiver_archived_total{instance=\"$instance\",service_id=\"$postgres\"}[1m])",
-              "interval": "",
-              "legendFormat": "archived",
-              "refId": "A"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${ds}"
-              },
-              "exemplar": true,
-              "expr": "increase(postgres_archiver_failed_total{instance=\"$instance\",service_id=\"$postgres\"}[1m])",
-              "hide": false,
-              "interval": "",
-              "legendFormat": "failed",
-              "refId": "B"
-            }
-          ],
-          "title": "WAL archiving, per minute",
-          "type": "timeseries"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
-          },
-          "description": "Important: when WAL archiving is disabled, metrics will not be collected.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "custom": {
-                "align": "auto",
-                "cellOptions": {
-                  "type": "color-text"
-                },
-                "filterable": false,
-                "inspect": false
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  }
-                ]
-              },
-              "unit": "none"
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "name"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 220
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 24,
-            "x": 0,
-            "y": 676
-          },
-          "id": 85,
-          "options": {
-            "cellHeight": "sm",
-            "footer": {
-              "countRows": false,
-              "fields": "",
-              "reducer": [
-                "sum"
-              ],
-              "show": false
-            },
-            "showHeader": true
-          },
-          "pluginVersion": "11.5.0-217209",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${ds}"
-              },
-              "exemplar": false,
-              "expr": "sum by (name,setting) (postgres_service_settings_info{instance=\"$instance\",service_id=\"$postgres\",name=~\"archive_.+\"})",
-              "format": "table",
-              "instant": true,
-              "interval": "",
-              "legendFormat": "",
-              "refId": "A"
-            }
-          ],
-          "title": "WAL archiving settings",
-          "transformations": [
-            {
-              "id": "filterFieldsByName",
-              "options": {
-                "include": {
-                  "names": [
-                    "name",
-                    "setting"
-                  ]
-                }
-              }
-            },
-            {
-              "id": "organize",
-              "options": {
-                "excludeByName": {},
-                "includeByName": {},
-                "indexByName": {},
-                "renameByName": {
-                  "name": "Name",
-                  "setting": "Value"
-                }
-              }
-            }
-          ],
-          "type": "table"
-        }
-      ],
-      "title": "WAL archiving",
-      "type": "row"
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 41,
+  "schemaVersion": 40,
   "tags": [
     "pgSCV"
   ],
@@ -8830,7 +9612,7 @@
         "current": {},
         "includeAll": false,
         "label": "DS",
-        "name": "DS_VICTORIAMETRICS",
+        "name": "ds",
         "options": [],
         "query": "prometheus",
         "refresh": 1,
@@ -8842,7 +9624,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_VICTORIAMETRICS}"
+          "uid": "${ds}"
         },
         "definition": "label_values(pgscv_services_registered_total{service=\"postgres\"},instance)",
         "includeAll": false,
@@ -8862,7 +9644,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_VICTORIAMETRICS}"
+          "uid": "${ds}"
         },
         "definition": "label_values(pgscv_services_registered_total{instance=\"$instance\", service=\"postgres\"},service_id)",
         "includeAll": false,
@@ -8882,7 +9664,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_VICTORIAMETRICS}"
+          "uid": "${ds}"
         },
         "definition": "label_values(postgres_database_size_bytes{instance=\"$instance\"},database)",
         "includeAll": true,
@@ -8931,7 +9713,7 @@
     ]
   },
   "time": {
-    "from": "now-3h",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {
@@ -8940,7 +9722,7 @@
   "timezone": "",
   "title": "pgSCV: PostgreSQL (NEW)",
   "uid": "N6PwjKeGz",
-  "version": 34,
+  "version": 37,
   "weekStart": "",
   "gnetId": 21430
 }

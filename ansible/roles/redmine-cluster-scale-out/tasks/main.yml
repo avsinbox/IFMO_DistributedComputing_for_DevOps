@@ -1,0 +1,3 @@
+---
+- name: Scale out the cluster to 5 Patroni-managed PostgreSQL instances
+  ansible.builtin.include_tasks: redmine-cluster-scale-out.yml

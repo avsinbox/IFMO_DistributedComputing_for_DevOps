@@ -52,7 +52,7 @@
       }
     ]
   },
-  "description": "Patroni dashboard for pgSCV metrics (Prometheus version, pgSCV 0.9.7 edition)",
+  "description": "Patroni dashboard for pgSCV metrics (Prometheus version, pgSCV v0.14.0 edition)",
   "editable": true,
   "fiscalYearStartMonth": 0,
   "gnetId": 21462,
@@ -115,7 +115,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Current status of Patroni service.",
       "fieldConfig": {
@@ -184,7 +184,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "patroni_up{service_id=\"$patroni\"}",
@@ -200,7 +200,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Patroni node name.",
       "fieldConfig": {
@@ -250,7 +250,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -284,7 +284,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Patroni version.",
       "fieldConfig": {
@@ -334,7 +334,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -368,7 +368,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Patroni node status (Leader or Follower).",
       "fieldConfig": {
@@ -435,7 +435,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "patroni_master{instance=\"$instance\",service_id=\"$patroni\",scope=\"$scope\"}",
@@ -451,7 +451,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Patroni cluster lock status.",
       "fieldConfig": {
@@ -517,7 +517,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "patroni_cluster_unlocked{instance=\"$instance\",service_id=\"$patroni\",scope=\"$scope\"}",
@@ -533,7 +533,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Patroni pause or resume mode for the cluster.\n\nSee docs https://patroni.readthedocs.io/en/master/pause.html for more info.",
       "fieldConfig": {
@@ -599,7 +599,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "patroni_is_paused{instance=\"$instance\",service_id=\"$patroni\",scope=\"$scope\"}",
@@ -615,7 +615,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Epoch timestamp when DCS was last contacted successfully by Patroni.",
       "fieldConfig": {
@@ -667,7 +667,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "patroni_dcs_last_seen{instance=\"$instance\",service_id=\"$patroni\",scope=\"$scope\"}",
@@ -683,7 +683,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Epoch seconds since latest timeline switched.",
       "fieldConfig": {
@@ -755,10 +755,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
-          "expr": "patroni_last_timeline_change_seconds{instance=\"$instance\",service_id=\"$patroni\",scope=\"$scope\"}",
+          "expr": "now()-patroni_last_timeline_change_seconds{instance=\"$instance\",service_id=\"$patroni\",scope=\"$scope\"}",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -771,7 +771,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Is replica.",
       "fieldConfig": {
@@ -836,7 +836,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "patroni_replica{instance=\"$instance\",service_id=\"$patroni\",scope=\"$scope\"}",
@@ -852,7 +852,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Is standby leader.",
       "fieldConfig": {
@@ -917,7 +917,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "patroni_standby_leader{instance=\"$instance\",service_id=\"$patroni\",scope=\"$scope\"}",
@@ -933,7 +933,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_VICTORIAMETRICS}"
+        "uid": "${ds}"
       },
       "description": "Is 1 if the replaying of Postgres transaction log is paused, 0 otherwise.",
       "fieldConfig": {
@@ -998,7 +998,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "editorMode": "code",
           "expr": "patroni_xlog_paused{instance=\"$instance\",service_id=\"$patroni\",scope=\"$scope\"}",
@@ -1024,7 +1024,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "description": "DCS Failsafe Mode.\n\nSee docs https://patroni.readthedocs.io/en/master/dcs_failsafe_mode.html for more info.",
           "fieldConfig": {
@@ -1090,7 +1090,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "patroni_failsafe_mode_is_active{instance=\"$instance\",service_id=\"$patroni\",scope=\"$scope\"}",
@@ -1106,7 +1106,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "description": "The number of seconds the loop will sleep.\n\nRule: loop_wait + 2 * retry_timeout <= ttl\n\nSee loop_wait settings in docs https://patroni.readthedocs.io/en/latest/dynamic_configuration.html for more info.",
           "fieldConfig": {
@@ -1158,7 +1158,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "patroni_loop_wait{instance=\"$instance\",service_id=\"$patroni\",scope=\"$scope\"}",
@@ -1174,7 +1174,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "description": "Timeout for DCS and PostgreSQL operation retries (in seconds).\n\nRule: loop_wait + 2 * retry_timeout <= ttl\n\nSee retry_timeout settings in docs https://patroni.readthedocs.io/en/latest/dynamic_configuration.html for more info.",
           "fieldConfig": {
@@ -1226,7 +1226,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "patroni_retry_timeout{instance=\"$instance\",service_id=\"$patroni\",scope=\"$scope\"}",
@@ -1242,7 +1242,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "description": "The TTL to acquire the leader lock (in seconds).\n\nRule: loop_wait + 2 * retry_timeout <= ttl\n\nSee ttl settings in docs https://patroni.readthedocs.io/en/latest/dynamic_configuration.html for more info.",
           "fieldConfig": {
@@ -1294,7 +1294,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "patroni_ttl{instance=\"$instance\",service_id=\"$patroni\",scope=\"$scope\"}",
@@ -1310,7 +1310,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "description": "The maximum bytes a follower may lag to be able to participate in leader election.\n\nSee maximum_lag_on_failover settings in docs https://patroni.readthedocs.io/en/latest/dynamic_configuration.html",
           "fieldConfig": {
@@ -1382,7 +1382,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "patroni_maximum_lag_on_failover{instance=\"$instance\",service_id=\"$patroni\",scope=\"$scope\"}",
@@ -1412,7 +1412,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "description": "Is 1 if Postgres is running, 0 otherwise.",
           "fieldConfig": {
@@ -1478,7 +1478,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "patroni_postgres_running{instance=\"$instance\",service_id=\"$patroni\",scope=\"$scope\"}",
@@ -1494,7 +1494,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "description": "PostgreSQL uptime.",
           "fieldConfig": {
@@ -1566,7 +1566,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "now()-patroni_postmaster_start_time{instance=\"$instance\",service_id=\"$patroni\",scope=\"$scope\"}",
@@ -1582,7 +1582,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "description": "Is 1 if the node needs a restart, 0 otherwise.",
           "fieldConfig": {
@@ -1648,7 +1648,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "patroni_pending_restart{instance=\"$instance\",service_id=\"$patroni\",scope=\"$scope\"}",
@@ -1664,7 +1664,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "description": "PostgreSQL timeline.",
           "fieldConfig": {
@@ -1716,7 +1716,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "patroni_postgres_timeline{instance=\"$instance\",service_id=\"$patroni\",scope=\"$scope\"}",
@@ -1732,7 +1732,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "description": "PostgreSQL version.",
           "fieldConfig": {
@@ -1782,7 +1782,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -1800,7 +1800,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "description": "Is 1 if Postgres is streaming, 0 otherwise.",
           "fieldConfig": {
@@ -1865,7 +1865,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "patroni_postgres_streaming{instance=\"$instance\",service_id=\"$patroni\",scope=\"$scope\"}",
@@ -1881,7 +1881,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "description": "Is 1 if Postgres is replicating from archive, 0 otherwise.",
           "fieldConfig": {
@@ -1947,7 +1947,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "patroni_postgres_in_archive_recovery{instance=\"$instance\",service_id=\"$patroni\",scope=\"$scope\"}",
@@ -1963,7 +1963,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "description": "Is 1 if synchronous mode is active, 0 if inactive.\n\nSee docs https://patroni.readthedocs.io/en/latest/replication_modes.html#synchronous-mode for more info.",
           "fieldConfig": {
@@ -2028,7 +2028,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "patroni_sync_standby{instance=\"$instance\",service_id=\"$patroni\",scope=\"$scope\"}",
@@ -2058,7 +2058,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "description": "Current location of the Postgres transaction log, 0 if this node is a replica.",
           "fieldConfig": {
@@ -2138,7 +2138,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "patroni_xlog_location{instance=\"$instance\",scope=\"$scope\"}",
@@ -2154,7 +2154,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "description": "Current location of the received Postgres transaction log, 0 if this node is the leader.",
           "fieldConfig": {
@@ -2232,7 +2232,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "patroni_xlog_received_location{instance=\"$instance\",scope=\"$scope\"}",
@@ -2248,7 +2248,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "description": "Current location of the replayed Postgres transaction log, 0 if this node is the leader.",
           "fieldConfig": {
@@ -2326,7 +2326,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "patroni_xlog_replayed_location{instance=\"$instance\",scope=\"$scope\"}",
@@ -2342,7 +2342,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_VICTORIAMETRICS}"
+            "uid": "${ds}"
           },
           "description": "Current timestamp of the replayed Postgres transaction log, 0 if null.",
           "fieldConfig": {
@@ -2420,7 +2420,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_VICTORIAMETRICS}"
+                "uid": "${ds}"
               },
               "editorMode": "code",
               "expr": "now()-patroni_xlog_replayed_timestamp{instance=\"$instance\",scope=\"$scope\"}",
@@ -2456,7 +2456,7 @@
         "includeAll": false,
         "label": "DS",
         "multi": false,
-        "name": "DS_VICTORIAMETRICS",
+        "name": "ds",
         "options": [],
         "query": "prometheus",
         "queryValue": "",
@@ -2470,7 +2470,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_VICTORIAMETRICS}"
+          "uid": "${ds}"
         },
         "definition": "label_values(pgscv_services_registered_total{service=\"patroni\"},instance)",
         "hide": 0,
@@ -2497,7 +2497,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_VICTORIAMETRICS}"
+          "uid": "${ds}"
         },
         "definition": "label_values(pgscv_services_registered_total{instance=\"$instance\", service=\"patroni\"},service_id)",
         "hide": 0,
@@ -2524,7 +2524,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_VICTORIAMETRICS}"
+          "uid": "${ds}"
         },
         "definition": "label_values(patroni_postgres_running{service_id=\"$patroni\"},scope)",
         "hide": 0,
@@ -2571,6 +2571,6 @@
   "timezone": "",
   "title": "pgSCV: Patroni (NEW)",
   "uid": "aim7Ue3th",
-  "version": 22,
+  "version": 23,
   "weekStart": ""
 }
