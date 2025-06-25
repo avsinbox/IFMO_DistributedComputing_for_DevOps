@@ -9,7 +9,7 @@
 - name: Create Redmine database dump
   community.postgresql.postgresql_db:
     login_host: localhost
-    port: "{{ db_service_port }}"
+    login_port: "{{ db_service_port }}"
     login_user: "{{ redmine_user_name }}"
     login_password: "{{ redmine_user_password }}"
     name: "{{ redmine_db_name }}"

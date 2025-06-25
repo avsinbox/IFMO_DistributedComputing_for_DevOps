@@ -1,12 +1,12 @@
 ---
 - name: Home work 4. Deploy PgBouncer and HAProxy for the Redmine cluster
   hosts: carrier
-  
+
   roles:
     - redmine-cluster-scale-out
     - redmine-pgbouncer-haproxy
     - redmine-expand-victoriametrics
-  
+
   tasks:
     - name: Display Configuration Variables
       ansible.builtin.debug:

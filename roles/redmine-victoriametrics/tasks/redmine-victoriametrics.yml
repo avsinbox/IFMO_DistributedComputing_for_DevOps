@@ -2,7 +2,7 @@
 - name: Gather PostgreSQL servers roles information
   community.postgresql.postgresql_info:
     login_host: localhost
-    port: "{{ item.port }}"
+    login_port: "{{ item.port }}"
     login_user: "{{ postgres_superuser_username }}"
     login_password: "{{ postgres_superuser_password }}"
     filter: in_recovery
@@ -17,7 +17,7 @@
 - name: Create pg_stat_statements database extension
   community.postgresql.postgresql_ext:
     login_host: localhost
-    port: "{{ item.item.port }}"
+    login_port: "{{ item.item.port }}"
     login_user: "{{ postgres_superuser_username }}"
     login_password: "{{ postgres_superuser_password }}"
     login_db: "{{ redmine_db_name }}"

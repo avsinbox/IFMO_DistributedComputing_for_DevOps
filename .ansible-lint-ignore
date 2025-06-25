@@ -1,1 +1,9 @@
+.github/workflows/ansible-lint.yml yaml[brackets]
 roles/redmine-cluster/files/patroni.yml yaml[truthy]
+roles/redmine-cluster role-name
+roles/redmine-cluster-scale-out role-name
+roles/redmine-db-dump role-name
+roles/redmine-expand-victoriametrics role-name
+roles/redmine-monitoring role-name
+roles/redmine-pgbouncer-haproxy role-name
+roles/redmine-victoriametrics role-name

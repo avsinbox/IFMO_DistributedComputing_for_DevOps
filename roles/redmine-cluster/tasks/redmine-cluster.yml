@@ -46,7 +46,7 @@
 - name: Gather PostgreSQL servers roles information
   community.postgresql.postgresql_info:
     login_host: localhost
-    port: "{{ item.port }}"
+    login_port: "{{ item.port }}"
     login_user: "{{ postgres_superuser_username }}"
     login_password: "{{ postgres_superuser_password }}"
     filter: in_recovery
@@ -69,7 +69,7 @@
 - name: Create Redmine user
   community.postgresql.postgresql_user:
     login_host: localhost
-    port: "{{ item.item.port }}"
+    login_port: "{{ item.item.port }}"
     login_user: "{{ postgres_superuser_username }}"
     login_password: "{{ postgres_superuser_password }}"
     name: "{{ redmine_user_name }}"
@@ -86,7 +86,7 @@
 - name: Create empty Redmine database
   community.postgresql.postgresql_db:
     login_host: localhost
-    port: "{{ item.item.port }}"
+    login_port: "{{ item.item.port }}"
     login_user: "{{ postgres_superuser_username }}"
     login_password: "{{ postgres_superuser_password }}"
     name: "{{ redmine_db_name }}"
@@ -101,7 +101,7 @@
 - name: Restore Redmine database from dump
   community.postgresql.postgresql_db:
     login_host: localhost
-    port: "{{ item.item.port }}"
+    login_port: "{{ item.item.port }}"
     login_user: "{{ postgres_superuser_username }}"
     login_password: "{{ postgres_superuser_password }}"
     name: "{{ redmine_db_name }}"
