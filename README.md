@@ -54,7 +54,7 @@ https://www.postgresql.org/docs/current/pgstatstatements.html
 3. Приложение Redmine переключено на работу с БД через HAProxy
 
 ---
-# 4.3. Ansible-роль 'redmine-expand-victoriametrics' для расширения мониторинга
+## 4.3. Ansible-роль 'redmine-expand-victoriametrics' для расширения мониторинга
 
 ### Сделано
 1. Настроен мониторинг для всех пяти инстансов PostgreSQL
